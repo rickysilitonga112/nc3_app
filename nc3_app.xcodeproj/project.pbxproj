@@ -22,6 +22,7 @@
 		56A296C328801CDE000EC91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A296C228801CDE000EC91A /* Preview Assets.xcassets */; };
 		56A296D82880229A000EC91A /* OneCallApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A296D72880229A000EC91A /* OneCallApiModel.swift */; };
 		56A296DA28802DE0000EC91A /* FetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A296D928802DE0000EC91A /* FetchRequest.swift */; };
+		56A40B2B2881AD520060E5BF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A40B2A2881AD520060E5BF /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		56A296C528801CDE000EC91A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		56A296D72880229A000EC91A /* OneCallApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallApiModel.swift; sourceTree = "<group>"; };
 		56A296D928802DE0000EC91A /* FetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRequest.swift; sourceTree = "<group>"; };
+		56A40B2A2881AD520060E5BF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		56A296B428801CDD000EC91A /* nc3_app WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				56A40B2A2881AD520060E5BF /* LocationManager.swift */,
 				56A296D628801D55000EC91A /* Core */,
 				56A296D428801D05000EC91A /* Model */,
 				56A296D328801CFF000EC91A /* View */,
@@ -316,6 +319,7 @@
 				56A296BA28801CDD000EC91A /* NotificationController.swift in Sources */,
 				56A296B828801CDD000EC91A /* ContentView.swift in Sources */,
 				569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */,
+				56A40B2B2881AD520060E5BF /* LocationManager.swift in Sources */,
 				56A296D82880229A000EC91A /* OneCallApiModel.swift in Sources */,
 				56A296BE28801CDD000EC91A /* ComplicationController.swift in Sources */,
 				569F99A32881176A00964BA9 /* DashboardView.swift in Sources */,
@@ -466,8 +470,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nc3_app WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "nc3_app WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = nc3_app_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app will acces location to provide weaher and UV Index based on your location";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,8 +503,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nc3_app WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "nc3_app WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = nc3_app_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app will acces location to provide weaher and UV Index based on your location";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -10,33 +10,37 @@ import SwiftUI
 struct DashboardView: View {
     @ObservedObject var vm = ViewModel()
     
+    
+    
     var body: some View {
         // MARK: - TESTING
-//        VStack {
-//            Text("Latitude: \(vm.latitude)")
-//            Text("Longitude: \(vm.longitude)")
-//            Text("UVI: \(vm.currentUvi)")
-//            Text("Time: \(vm.getFormatTime())")
-//
-//            Button {
-//                withAnimation {
-//                    vm.fetchData()
-//                }
-//            } label: {
-//                Text("Fetch")
-//            }
-//
-//        }
-//
-//        .onAppear {
-//            print("Appear")
-////            vm.fetchData()
-//        }
+        VStack {
+            Text("Latitude: \(vm.latitude)")
+            Text("Longitude: \(vm.longitude)")
+            Text("UVI: \(vm.currentUvi)")
+            Text("Time: \(vm.getFormatTime())")
+
+            Button {
+                withAnimation {
+                    vm.fetchData()
+                }
+            } label: {
+                Text("Fetch")
+            }
+
+        }
+
+        .onAppear {
+            print("Appear")
+//            vm.fetchData()
+        }
         
         VStack {
             // MARK: - CODE HERE
+            Text("\(vm.latitude)")
         }
     }
+    
 }
 
 struct DashboardView_Previews: PreviewProvider {

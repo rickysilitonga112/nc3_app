@@ -8,42 +8,22 @@
 import SwiftUI
 
 struct ChooseSunscreenView: View {
-    @ObservedObject var fetchManager = FetchRequest()
-    
-    @State var uvi: Double = 0
-    @State var lat: Double = 0
-    @State var lon: Double = 0
+    @ObservedObject var locationManager = LocationManager.shared
     
     var body: some View {
         VStack {
-            
-            VStack {
-                Text("Current UVI: \(uvi)")
-                Text("Lat: \(lat)")
-                Text("Lon: \(lon)")
-                
-            }
-            
-            
             Button {
+                // request location
+                if locationManager.authorisationStatus == .notDetermined {
+                    locationManager.requestAuthorisation()
+                } else {
+                    print("Location is: \(locationManager.authorisationStatus.hashValue)")
+                }
                 
-                // MARK: - TESTING
-//                fetchManager.fetchData()
-//                if let data = fetchManager.oneCallApiData {
-//                    uvi = data.current.uvi
-//                    lat = data.lat
-//                    lon = data.lon
-//
-//                    print("=================================================")
-//                    print(uvi)
-//                    print(lat)
-//                    print(lon)
-//                    print("=================================================")
-//                }
             } label: {
-                Text("Fetch Request")
+                Text("Req Location")
             }
-            .padding()
+
         }
 
     }

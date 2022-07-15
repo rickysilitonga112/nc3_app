@@ -12,5 +12,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>Supports running without iOS App installation</key>
+	<string></string>
 </dict>
 </plist>

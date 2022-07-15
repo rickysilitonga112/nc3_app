@@ -10,7 +10,7 @@ import SwiftUI
 
 extension DashboardView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var latitude: Double = 0
+        @Published var latitude: Double = 1
         @Published var longitude: Double = 0
         @Published var currentDate: Int = 0
         @Published var currentUvi: Double = 0
