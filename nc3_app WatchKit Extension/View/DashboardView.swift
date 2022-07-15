@@ -37,6 +37,63 @@ struct DashboardView: View {
         
         VStack {
             // MARK: - CODE HERE
+            HStack(spacing: 3){
+                Image("sun")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding()
+                Text("31")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                Spacer()
+                Image("uv")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding()
+                Text("8")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                Spacer()
+            }
+            Divider()
+            
+            HStack{
+                Image("sun2")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding()
+                Spacer()
+                    .frame(width: 17)
+                VStack{
+                    Text("UV INDEX")
+                        .frame(width: 80, alignment: .leading)
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                    Text("Very High")
+                        .fontWeight(.bold)
+                }
+                Spacer()
+            }
+            Divider()
+            
+            HStack{
+                Image("time")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .padding()
+                Spacer()
+                    .frame(width: 17)
+                VStack{
+                    Text("BURN IN")
+                        .frame(width: 80, alignment: .leading)
+                        .font(.caption2)
+                        .foregroundColor(.gray)
+                    Text("20 Minute")
+                        .fontWeight(.bold)
+                }
+                Spacer()
+            }
+            Divider()
             Text("\(vm.latitude)")
         }
     }
