@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */; };
+		569F99A32881176A00964BA9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A22881176A00964BA9 /* DashboardView.swift */; };
+		569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */; };
 		56A296A628801CDC000EC91A /* nc3_app WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56A296AB28801CDD000EC91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A296AA28801CDD000EC91A /* Assets.xcassets */; };
 		56A296B128801CDD000EC91A /* nc3_app WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56A296B028801CDD000EC91A /* nc3_app WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -17,6 +20,8 @@
 		56A296BE28801CDD000EC91A /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A296BD28801CDD000EC91A /* ComplicationController.swift */; };
 		56A296C028801CDE000EC91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A296BF28801CDE000EC91A /* Assets.xcassets */; };
 		56A296C328801CDE000EC91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A296C228801CDE000EC91A /* Preview Assets.xcassets */; };
+		56A296D82880229A000EC91A /* OneCallApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A296D72880229A000EC91A /* OneCallApiModel.swift */; };
+		56A296DA28802DE0000EC91A /* FetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A296D928802DE0000EC91A /* FetchRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +67,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSunscreenView.swift; sourceTree = "<group>"; };
+		569F99A22881176A00964BA9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView-ViewModel.swift"; sourceTree = "<group>"; };
 		56A296A128801CDC000EC91A /* nc3_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nc3_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nc3_app WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A296AA28801CDD000EC91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 		56A296C228801CDE000EC91A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		56A296C428801CDE000EC91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56A296C528801CDE000EC91A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		56A296D72880229A000EC91A /* OneCallApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallApiModel.swift; sourceTree = "<group>"; };
+		56A296D928802DE0000EC91A /* FetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,8 @@
 		56A296D328801CFF000EC91A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */,
+				569F99A22881176A00964BA9 /* DashboardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 		56A296D428801D05000EC91A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56A296D72880229A000EC91A /* OneCallApiModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +168,8 @@
 		56A296D528801D0A000EC91A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				56A296D928802DE0000EC91A /* FetchRequest.swift */,
+				569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,8 +315,13 @@
 			files = (
 				56A296BA28801CDD000EC91A /* NotificationController.swift in Sources */,
 				56A296B828801CDD000EC91A /* ContentView.swift in Sources */,
+				569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */,
+				56A296D82880229A000EC91A /* OneCallApiModel.swift in Sources */,
 				56A296BE28801CDD000EC91A /* ComplicationController.swift in Sources */,
+				569F99A32881176A00964BA9 /* DashboardView.swift in Sources */,
+				56A296DA28802DE0000EC91A /* FetchRequest.swift in Sources */,
 				56A296B628801CDD000EC91A /* nc3_appApp.swift in Sources */,
+				5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */,
 				56A296BC28801CDD000EC91A /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
