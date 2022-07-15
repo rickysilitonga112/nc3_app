@@ -12,7 +12,8 @@ extension DashboardView {
     @MainActor class ViewModel: ObservableObject {
         @Published var latitude: Double = 0
         @Published var longitude: Double = 0
-        @Published var currentCondition: Condition?
+        @Published var currentDate: Int = 0
+        @Published var currentUvi: Double = 0
         @Published var hourlyConditionArr: [Condition]?
         
         
@@ -20,6 +21,25 @@ extension DashboardView {
         private let baseURL: String = "https://api.openweathermap.org/data/2.5/onecall?exclude=minutely,daily"
         private let apiKey: String = "a9deed7fe4a75cac2ac745df80c7e8aa"
         
+        
+        func getFormatTime() -> String {
+            if currentDate == 0 {
+                return "0"
+            }
+            
+            let time = Double(currentDate)
+            
+            let date = Date(timeIntervalSince1970: time)
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
+            dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
+            dateFormatter.timeZone = .current
+            let localDate = dateFormatter.string(from: date)
+            
+            return localDate
+        }
+        
+        // api request
         func fetchData() {
             performRequest(with: completeUrlTest)
         }
@@ -34,7 +54,11 @@ extension DashboardView {
                             // use the data
                             if let result = self.decodeJson(safeData) {
                                 DispatchQueue.main.async {
-//                                    self.oneCallApiData = result
+                                    self.latitude = result.lat
+                                    self.longitude = result.lon
+                                    self.currentDate = result.current.dt
+                                    self.currentUvi = result.current.uvi
+                                    self.hourlyConditionArr = result.hourly
                                 }
                             }
                         }
@@ -45,12 +69,10 @@ extension DashboardView {
             }
         }
         
-        
         private func decodeJson(_ safeData: Data) -> OneCallApiModel? {
             let decoder = JSONDecoder()
             do {
                 let decodeData = try decoder.decode(OneCallApiModel.self, from: safeData)
-                print(decodeData)
                 return decodeData
             } catch {
                 print("Error decode data \(error.localizedDescription)")

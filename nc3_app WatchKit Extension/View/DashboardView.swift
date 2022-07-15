@@ -8,8 +8,34 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @ObservedObject var vm = ViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        // MARK: - TESTING
+//        VStack {
+//            Text("Latitude: \(vm.latitude)")
+//            Text("Longitude: \(vm.longitude)")
+//            Text("UVI: \(vm.currentUvi)")
+//            Text("Time: \(vm.getFormatTime())")
+//
+//            Button {
+//                withAnimation {
+//                    vm.fetchData()
+//                }
+//            } label: {
+//                Text("Fetch")
+//            }
+//
+//        }
+//
+//        .onAppear {
+//            print("Appear")
+////            vm.fetchData()
+//        }
+        
+        VStack {
+            // MARK: - CODE HERE
+        }
     }
 }
 
