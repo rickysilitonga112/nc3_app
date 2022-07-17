@@ -10,8 +10,21 @@ import SwiftUI
 struct ChooseSunscreenView: View {
     @ObservedObject var locationManager = LocationManager.shared
     
+    var userLatitude: String {
+        return "\(locationManager.lastLocation?.coordinate.latitude ?? 0)"
+    }
+    
+    var userLongitude: String {
+        return "\(locationManager.lastLocation?.coordinate.longitude ?? 0)"
+    }
+    
     var body: some View {
         VStack {
+            Text("location status: \(locationManager.statusString)")
+            Text("Latitude: \(userLatitude)")
+            Text("Longitude: \(userLongitude)")
+            
+            
             Button {
                 // request location
                 if locationManager.authorisationStatus == .notDetermined {
@@ -23,7 +36,6 @@ struct ChooseSunscreenView: View {
             } label: {
                 Text("Req Location")
             }
-
         }
 
     }
