@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */; };
+		565661D928856770002B6071 /* DailyConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565661D828856770002B6071 /* DailyConditionView.swift */; };
 		569F99A32881176A00964BA9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A22881176A00964BA9 /* DashboardView.swift */; };
 		569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */; };
 		56A296A628801CDC000EC91A /* nc3_app WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSunscreenView.swift; sourceTree = "<group>"; };
+		565661D828856770002B6071 /* DailyConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyConditionView.swift; sourceTree = "<group>"; };
 		569F99A22881176A00964BA9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView-ViewModel.swift"; sourceTree = "<group>"; };
 		56A296A128801CDC000EC91A /* nc3_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nc3_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 			children = (
 				5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */,
 				569F99A22881176A00964BA9 /* DashboardView.swift */,
+				565661D828856770002B6071 /* DailyConditionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				56A296BE28801CDD000EC91A /* ComplicationController.swift in Sources */,
 				569F99A32881176A00964BA9 /* DashboardView.swift in Sources */,
 				56A296DA28802DE0000EC91A /* FetchRequest.swift in Sources */,
+				565661D928856770002B6071 /* DailyConditionView.swift in Sources */,
 				56A296B628801CDD000EC91A /* nc3_appApp.swift in Sources */,
 				5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */,
 				56A296BC28801CDD000EC91A /* NotificationView.swift in Sources */,
