@@ -11,6 +11,7 @@
 		1D79AF83288512C900B0154C /* OnBoardingChooseSPF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79AF82288512C900B0154C /* OnBoardingChooseSPF.swift */; };
 		1D79AF852885165F00B0154C /* OnBoardingSetTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79AF842885165F00B0154C /* OnBoardingSetTime.swift */; };
 		1D79AF872885190600B0154C /* OnBoardingSetTimeFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D79AF862885190600B0154C /* OnBoardingSetTimeFirst.swift */; };
+		3201A5D52886F70E00631E95 /* TodayUvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3201A5D42886F70E00631E95 /* TodayUvView.swift */; };
 		5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */; };
 		565661D928856770002B6071 /* DailyConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565661D828856770002B6071 /* DailyConditionView.swift */; };
 		569F99A32881176A00964BA9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A22881176A00964BA9 /* DashboardView.swift */; };
@@ -76,6 +77,7 @@
 		1D79AF82288512C900B0154C /* OnBoardingChooseSPF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingChooseSPF.swift; sourceTree = "<group>"; };
 		1D79AF842885165F00B0154C /* OnBoardingSetTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSetTime.swift; sourceTree = "<group>"; };
 		1D79AF862885190600B0154C /* OnBoardingSetTimeFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSetTimeFirst.swift; sourceTree = "<group>"; };
+		3201A5D42886F70E00631E95 /* TodayUvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayUvView.swift; sourceTree = "<group>"; };
 		5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSunscreenView.swift; sourceTree = "<group>"; };
 		565661D828856770002B6071 /* DailyConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyConditionView.swift; sourceTree = "<group>"; };
 		569F99A22881176A00964BA9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				56A296B728801CDD000EC91A /* ContentView.swift */,
+				3201A5D42886F70E00631E95 /* TodayUvView.swift */,
 			);
 			path = Parent;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				56A296BA28801CDD000EC91A /* NotificationController.swift in Sources */,
 				56A296B828801CDD000EC91A /* ContentView.swift in Sources */,
 				1D79AF8128850C5C00B0154C /* OnBoardingSPF.swift in Sources */,
+				3201A5D52886F70E00631E95 /* TodayUvView.swift in Sources */,
 				1D79AF872885190600B0154C /* OnBoardingSetTimeFirst.swift in Sources */,
 				569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */,
 				56A40B2B2881AD520060E5BF /* LocationManager.swift in Sources */,
