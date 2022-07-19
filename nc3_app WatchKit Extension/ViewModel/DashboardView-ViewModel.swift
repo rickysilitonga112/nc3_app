@@ -18,7 +18,7 @@ extension DashboardView {
         
         
         private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=a9deed7fe4a75cac2ac745df80c7e8aa"
-        private let baseURL: String = "https://api.openweathermap.org/data/2.5/onecall?exclude=minutely,daily"
+        private let baseURL: String = "https://api.openweathermap.org/data/2.5/onecall"
         private let apiKey: String = "a9deed7fe4a75cac2ac745df80c7e8aa"
         
         
@@ -41,7 +41,8 @@ extension DashboardView {
         
         // api request
         func fetchData() {
-            performRequest(with: completeUrlTest)
+            let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=1.082828&lon=104.030457"
+            performRequest(with: url)
         }
         
         private func performRequest(with url: String) {
