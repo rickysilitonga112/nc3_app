@@ -17,7 +17,6 @@ struct OnBoardingSetTimeFirst: View {
                         .frame(width: 165, alignment: .leading)
                     
                     
-                    
                     Capsule()
                         .frame(width: 184, height: 48, alignment: .center)
                         .foregroundColor(.orange)
