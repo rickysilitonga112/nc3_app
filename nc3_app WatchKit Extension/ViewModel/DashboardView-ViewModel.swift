@@ -107,7 +107,7 @@ extension DashboardView {
         
         // api request
         func fetchData() {
-            let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=1.082828&lon=104.030457" + "&units=metric"
+            let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=48.858093&lon=48.858093" + "&units=metric"
             performRequest(with: url)
         }
         

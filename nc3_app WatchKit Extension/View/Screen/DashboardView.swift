@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @StateObject var vm: ViewModel = ViewModel()
+    @StateObject var vm = BaseViewModel.shared
     private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
     
     var uvi: Double {
