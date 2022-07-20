@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnBoardingChooseSPF: View {
     let screenWidth = WKInterfaceDevice.current().screenBounds.width
+    @Binding var showChooseSpfSheet: Bool
+    
     @State private var selection = 1
     private let spfOption: [String] = [
         "Spf 15",
@@ -24,7 +26,7 @@ struct OnBoardingChooseSPF: View {
                     HStack {
                         Text(spfOption[index])
                             .tag(index)
-                            .font(index == selection ? .body : .title3)
+                            .font(index == selection ? .title2 : .body)
                     }
                 }
 
@@ -40,7 +42,7 @@ struct OnBoardingChooseSPF: View {
             Spacer()
             
             Button {
-                print(selection)
+                
             } label: {
                 Text("Save")
                     .foregroundColor(.white)
@@ -53,6 +55,6 @@ struct OnBoardingChooseSPF: View {
 
 struct OnBoardingChooseSPF_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingChooseSPF()
+        OnBoardingChooseSPF(showChooseSpfSheet: .constant(true))
     }
 }

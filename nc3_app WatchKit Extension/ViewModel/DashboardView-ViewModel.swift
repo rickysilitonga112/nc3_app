@@ -17,10 +17,29 @@ extension DashboardView {
         @Published var hourlyConditionArr: [Condition]?
         
         
+        @Published var currentCondition: Condition?
+        
+        
         private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=a9deed7fe4a75cac2ac745df80c7e8aa"
         private let baseURL: String = "https://api.openweathermap.org/data/2.5/onecall"
         private let apiKey: String = "a9deed7fe4a75cac2ac745df80c7e8aa"
         
+        init() {
+            fetchData()
+        }
+        
+        
+        func getTodayWear() -> [String] {
+            if currentUvi < 3 {
+                return ["payung", "baju panjang"]
+            } else if currentUvi < 6 {
+                return ["this", "thus"]
+            } else if currentUvi < 9 {
+                return ["dfd"]
+            } else {
+                return ["rfdsfsf"]
+            }
+        }
         
         func getFormatTime() -> String {
             if currentDate == 0 {
@@ -60,6 +79,9 @@ extension DashboardView {
                                     self.currentDate = result.current.dt
                                     self.currentUvi = result.current.uvi
                                     self.hourlyConditionArr = result.hourly
+                                    
+                                    
+                                    self.currentCondition = result.current
                                 }
                             }
                         }

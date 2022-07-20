@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingLocation: View {
+    @StateObject var locationManager = LocationManager.shared
+    @State var nextPage: Bool = false
     
     var body: some View {
         NavigationView {
@@ -18,13 +20,26 @@ struct OnboardingLocation: View {
                     Spacer()
                 }
                 Text("Let us know your location for optimization of our services.")
-                NavigationLink(destination: OnBoardingSPF()
-                ) {
+                
+                Button {
+                    print("Set Location")
+                    
+                    if locationManager.authorisationStatus == .notDetermined {
+                        locationManager.requestAuthorisation()
+                    } else {
+                        print("Location is: \(locationManager.statusString)")
+                    }
+                    nextPage.toggle()
+                    
+                } label: {
                     Text("Set Location")
-                        .foregroundColor(.black)
-                }.buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                .background(NavigationLink(destination: OnBoardingSPF(), isActive: $nextPage , label: {EmptyView()}))
                 
             }
+            
         }
     }
 }

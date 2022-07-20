@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @ObservedObject var vm = ViewModel()
+    @StateObject var vm: ViewModel = ViewModel()
     let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
+    
+    
     @State var todayWear: [String] = ["Sunscreen", "Sunglasses", "Hat", "Longshirt"]
     
     
@@ -22,7 +24,7 @@ struct DashboardView: View {
                     .resizable()
                     .frame(width: 45
                            , height: 45)
-                Text("31")
+                Text("12")
                     .font(.title2)
                     .bold()
                 Spacer()
@@ -35,7 +37,7 @@ struct DashboardView: View {
                         .foregroundColor(Color.white)
                 }
             .gaugeStyle(CircularGaugeStyle(tint: gradient))
-                Text("8")
+                Text("\(vm.currentCondition?.uvi ?? 0)")
                     .font(.title2)
                     .bold()
             }
@@ -89,6 +91,7 @@ struct DashboardView: View {
                 }
             }
         }
+        
     }
     
 }
