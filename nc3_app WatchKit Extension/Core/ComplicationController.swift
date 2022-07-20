@@ -6,6 +6,7 @@
 //
 
 import ClockKit
+import SwiftUI
 
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
@@ -42,7 +43,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+        if let template = getComplicationTemplete(for: complication){
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+                handler(entry)
+        } else {
+            handler(nil)
+        }
+    }
+    
+    func getComplicationTemplete(for complication: CLKComplication) -> CLKComplicationTemplate? {
+        switch complication.family {
+        case .graphicCircular:
+            return CLKComplicationTemplateGraphicCircularView(ComplicationViewCircular())
+            
+        case .graphicRectangular:
+            return CLKComplicationTemplateGraphicRectangularStandardBody(headerTextProvider: CLKTextProvider(format: "Batam"), body1TextProvider: CLKTextProvider(format: "UV Index: 8"))
+            
+        default:
+            return nil
+        }
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
