@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("username") var showOnboarding: Bool = true
     var body: some View {
-//        ParentView()
-        OnboardingLocation()
-//        DashboardView()
-//        ChooseSunscreenView()
-////        OnBoardingChooseSPF()
+        NavigationView {
+            if showOnboarding {
+                OnboardingLocation()
+            } else {
+                ParentView()
+            }
+        }
     }
 }
 

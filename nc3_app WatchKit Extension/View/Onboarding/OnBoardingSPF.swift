@@ -11,37 +11,29 @@ struct OnBoardingSPF: View {
     @State var showChooseSpfSheet: Bool = false
     
     var body: some View {
-        NavigationView{
-            ScrollView {
-                VStack(spacing: 10){
-                    HStack{
-                        Image(systemName: "sun.max")
-                            .font(.title)
-                        Spacer()
-                    }
-                    Text("Choose your SPF sunscreen for us to determine how long the sunscreen will last")
-                    
-                    Button {
-                        showChooseSpfSheet = true
-                    } label: {
-                        Text("Choose")
-                            .foregroundColor(.white)
-                    }
-                    .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
-                    
-                    NavigationLink(destination: ParentView()
-                    ) {
-                        Text("Choose Later")
-                            .foregroundColor(.white)
-                    }
-                }
-                
+        ScrollView {
+            HStack{
+                Image(systemName: "sun.max")
+                    .font(.title)
+                Spacer()
             }
-            .sheet(isPresented: $showChooseSpfSheet) {
-                OnBoardingChooseSPF(showChooseSpfSheet: $showChooseSpfSheet)
-            }
+            Text("Choose your SPF sunscreen for us to determine how long the sunscreen will last")
             
-            .navigationBarBackButtonHidden(true)   
+            Button {
+                showChooseSpfSheet = true
+            } label: {
+                Text("Choose")
+                    .foregroundColor(.white)
+            }
+            .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+            
+            NavigationLink(destination: ParentView().navigationBarHidden(true)) {
+                Text("Choose Later")
+                    .foregroundColor(.white)
+            }
+        }
+        .sheet(isPresented: $showChooseSpfSheet) {
+            OnBoardingChooseSPF(showChooseSpfSheet: $showChooseSpfSheet)
         }
     }
 }

@@ -12,35 +12,34 @@ struct OnboardingLocation: View {
     @State var nextPage: Bool = false
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 10){
-                HStack{
-                    Image(systemName: "location.circle")
-                        .font(.title)
-                    Spacer()
-                }
-                Text("Let us know your location for optimization of our services.")
-                
-                Button {
-                    print("Set Location")
-                    
-                    if locationManager.authorisationStatus == .notDetermined {
-                        locationManager.requestAuthorisation()
-                    } else {
-                        print("Location is: \(locationManager.statusString)")
-                    }
-                    nextPage.toggle()
-                    
-                } label: {
-                    Text("Set Location")
-                        .foregroundColor(.white)
-                }
-                .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
-                .background(NavigationLink(destination: OnBoardingSPF(), isActive: $nextPage , label: {EmptyView()}))
-                
+        VStack(spacing: 10){
+            HStack{
+                Image(systemName: "location.circle")
+                    .font(.title)
+                Spacer()
             }
+            Text("Let us know your location for optimization of our services.")
             
+            Button {
+                print("Set Location")
+                
+                if locationManager.authorisationStatus == .notDetermined {
+                    locationManager.requestAuthorisation()
+                } else {
+                    print("Location is: \(locationManager.statusString)")
+                }
+                nextPage.toggle()
+                
+            } label: {
+                Text("Set Location")
+                    .foregroundColor(.white)
+            }
+            .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+            .background(
+                NavigationLink(destination: OnBoardingSPF().navigationBarHidden(true), isActive: $nextPage , label: {EmptyView()})
+            )
         }
+        
     }
 }
 

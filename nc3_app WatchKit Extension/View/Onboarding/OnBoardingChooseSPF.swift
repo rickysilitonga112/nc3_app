@@ -12,32 +12,28 @@ struct OnBoardingChooseSPF: View {
     @Binding var showChooseSpfSheet: Bool
     
     @State private var selection = 1
-    private let spfOption: [String] = [
-        "Spf 15",
-        "Spf 20",
-        "Spf 25",
-        "Spf 30",
-    ]
+    private let spfOption: [Int] = [15, 20, 25, 30, 35, 40, 45, ]
     
     var body: some View {
         VStack {
-            Picker(selection: $selection) {
-                ForEach(0 ..< spfOption.count, id: \.self) { index in
-                    HStack {
-                        Text(spfOption[index])
-                            .tag(index)
-                            .font(index == selection ? .title2 : .body)
+            VStack {
+                HStack {
+                    Text("Choose your SPF \nsunscreen")
+                    Spacer()
+                }
+                
+                Picker("Select a number", selection: $selection) {
+                    ForEach(0 ..< spfOption.count, id: \.self) { index in
+                        HStack {
+                            Text("Spf \(spfOption[index])")
+                                .tag(index)
+                                .font(index == selection ? .title2 : .body)
+                        }
                     }
                 }
-
-            } label: {
-                Text("Choose your spf \nsunscreen")
-                    .frame(width: screenWidth, alignment: .leading)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .multilineTextAlignment(.leading)
+                .frame(height: 60)
+                .labelsHidden()
             }
-            .clipped()
-            .frame(height: 110)
             
             Spacer()
             

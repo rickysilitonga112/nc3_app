@@ -14,6 +14,7 @@
 		1DB556072886B198005B576D /* ActifityPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB556062886B198005B576D /* ActifityPageView.swift */; };
 		5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */; };
 		565661D928856770002B6071 /* DailyConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565661D828856770002B6071 /* DailyConditionView.swift */; };
+		56694D6828884DAA004BB01C /* Picker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56694D6728884DAA004BB01C /* Picker+Extension.swift */; };
 		569F99A32881176A00964BA9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A22881176A00964BA9 /* DashboardView.swift */; };
 		569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */; };
 		56A296A628801CDC000EC91A /* nc3_app WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -82,6 +83,7 @@
 		1DB556062886B198005B576D /* ActifityPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActifityPageView.swift; sourceTree = "<group>"; };
 		5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSunscreenView.swift; sourceTree = "<group>"; };
 		565661D828856770002B6071 /* DailyConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyConditionView.swift; sourceTree = "<group>"; };
+		56694D6728884DAA004BB01C /* Picker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Extension.swift"; sourceTree = "<group>"; };
 		569F99A22881176A00964BA9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView-ViewModel.swift"; sourceTree = "<group>"; };
 		56A296A128801CDC000EC91A /* nc3_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nc3_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56694D6928884DB1004BB01C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56694D6728884DAA004BB01C /* Picker+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		566FB0FD28869745003C9C3B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				56A296D628801D55000EC91A /* Core */,
+				56694D6928884DB1004BB01C /* Extension */,
 				566FB0FE28869910003C9C3B /* Services */,
 				56A296D428801D05000EC91A /* Model */,
 				56A296D328801CFF000EC91A /* View */,
@@ -381,6 +392,7 @@
 				1D79AF852885165F00B0154C /* OnBoardingSetTime.swift in Sources */,
 				1D79AF83288512C900B0154C /* OnBoardingChooseSPF.swift in Sources */,
 				56A296BE28801CDD000EC91A /* ComplicationController.swift in Sources */,
+				56694D6828884DAA004BB01C /* Picker+Extension.swift in Sources */,
 				569F99A32881176A00964BA9 /* DashboardView.swift in Sources */,
 				565661D928856770002B6071 /* DailyConditionView.swift in Sources */,
 				56A296B628801CDD000EC91A /* nc3_appApp.swift in Sources */,

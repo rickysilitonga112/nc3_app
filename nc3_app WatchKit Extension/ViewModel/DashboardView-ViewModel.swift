@@ -12,12 +12,9 @@ extension DashboardView {
     @MainActor class ViewModel: ObservableObject {
         @Published var latitude: Double = 1
         @Published var longitude: Double = 0
-        @Published var currentDate: Int = 0
-        @Published var currentUvi: Double = 0
+        
+        @Published var currentCondition: Condition = Condition(dt: 0, temp: 0, uvi: 0, weather: [Weather(id: 0, main: "Unknown", description: "Unknown")])
         @Published var hourlyConditionArr: [Condition]?
-        
-        
-        @Published var currentCondition: Condition?
         
         
         private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=a9deed7fe4a75cac2ac745df80c7e8aa"
@@ -29,24 +26,74 @@ extension DashboardView {
         }
         
         
-        func getTodayWear() -> [String] {
-            if currentUvi < 3 {
-                return ["payung", "baju panjang"]
-            } else if currentUvi < 6 {
-                return ["this", "thus"]
-            } else if currentUvi < 9 {
-                return ["dfd"]
+        func getTodayWear(uvi: Int) -> [String] {
+            if uvi < 3 {
+                return ["Sunscreen", "Sunglasses"]
+            } else if uvi < 6 {
+                return ["Sunscreen", "Sunglasses", "Sunhat"]
             } else {
-                return ["rfdsfsf"]
+                return ["Sunscreen", "Sunglasses", "Sunhat", "Long-sleeved clothes"]
             }
         }
         
-        func getFormatTime() -> String {
-            if currentDate == 0 {
+        func getIndex(uvi: Int) -> String {
+            if uvi <= 2 {
+                return "Low"
+            } else if uvi <= 5 {
+                return "Moderate"
+            } else if uvi <= 7 {
+                return "High"
+            } else if uvi <= 10 {
+                return "Very High"
+            } else {
+                return "Extreme"
+            }
+        }
+        
+        func getBurninTime(uvi: Int) -> String {
+            if uvi == 0 {
+                return "0 minutes"
+            }
+            else if uvi <= 2 {
+                return "60 minutes"
+            } else if uvi <= 4 {
+                return "45 minutes"
+            } else if uvi <= 6 {
+                return "30 minutes"
+            } else if uvi <= 10 {
+                return "15 - 24 minutes"
+            } else {
+                return "10 minutes or less"
+            }
+        }
+        
+        func getConditionName(conditionId: Int) -> String {
+            switch conditionId {
+            case 200...232:
+                return "cloud.bolt"
+            case 300...321:
+                return "cloud.drizzle"
+            case 500...531:
+                return "cloud.rain"
+            case 600...622:
+                return "cloud.snow"
+            case 701...781:
+                return "cloud.fog"
+            case 800:
+                return "sun.max"
+            case 801...804:
+                return "cloud.bolt"
+            default:
+                return "cloud"
+            }
+        }
+        
+        func getFormatTime(time: Int) -> String {
+            if time == 0 {
                 return "0"
             }
             
-            let time = Double(currentDate)
+            let time = Double(time)
             
             let date = Date(timeIntervalSince1970: time)
             let dateFormatter = DateFormatter()
@@ -60,7 +107,7 @@ extension DashboardView {
         
         // api request
         func fetchData() {
-            let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=1.082828&lon=104.030457"
+            let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=1.082828&lon=104.030457" + "&units=metric"
             performRequest(with: url)
         }
         
@@ -76,12 +123,9 @@ extension DashboardView {
                                 DispatchQueue.main.async {
                                     self.latitude = result.lat
                                     self.longitude = result.lon
-                                    self.currentDate = result.current.dt
-                                    self.currentUvi = result.current.uvi
-                                    self.hourlyConditionArr = result.hourly
-                                    
                                     
                                     self.currentCondition = result.current
+                                    self.hourlyConditionArr = result.hourly
                                 }
                             }
                         }

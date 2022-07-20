@@ -9,68 +9,81 @@ import SwiftUI
 
 struct DashboardView: View {
     @StateObject var vm: ViewModel = ViewModel()
-    let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
+    private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
     
+    var uvi: Double {
+        return vm.currentCondition.uvi.rounded(.up)
+    }
     
-    @State var todayWear: [String] = ["Sunscreen", "Sunglasses", "Hat", "Longshirt"]
+    var todayWear: [String] {
+        return vm.getTodayWear(uvi: Int(uvi))
+    }
+    var weatherIcon: String {
+        return vm.getConditionName(conditionId: vm.currentCondition.weather.first?.id ?? 0)
+    }
     
+    var temperature: Int {
+        return Int(vm.currentCondition.temp)
+    }
     
     var body: some View {
-        
         ScrollView {
             // MARK: - CODE HERE
-            HStack(spacing: 12) {
-                Image("sun")
-                    .resizable()
-                    .frame(width: 45
-                           , height: 45)
-                Text("12")
-                    .font(.title2)
-                    .bold()
-                Spacer()
-                Gauge(value: 8, in:0.0...11.0)  {
-                    Image(systemName: "sun.max.fill")
-                        .font(.footnote)
-                        .foregroundColor(Color.orange)
-                } currentValueLabel: {
-                    Text("UV")
-                        .foregroundColor(Color.white)
+            HStack {
+                HStack(spacing: 6) {
+                    Image(systemName: weatherIcon)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 34)
+                    Text("\(temperature)")
+                        .font(.title2)
                 }
-            .gaugeStyle(CircularGaugeStyle(tint: gradient))
-                Text("\(vm.currentCondition?.uvi ?? 0)")
-                    .font(.title2)
-                    .bold()
-            }
+                
+                Spacer()
+                
+                HStack(spacing: 6) {
+                    Gauge(value: uvi, in:0.0 ... 11.0)  {
+                        Image(systemName: "sun.max.fill")
+                            .font(.footnote)
+                            .foregroundColor(Color.orange)
+                    } currentValueLabel: {
+                        Text("UV")
+                            .foregroundColor(Color.white)
+                    } .gaugeStyle(CircularGaugeStyle(tint: gradient))
+                    
+                    Text("\(Int(uvi))")
+                        .font(.title2)
+                }
+                
+            } .padding(.horizontal)
             Divider()
-
             HStack{
                 Image(systemName: "sun.max")
                     .font(.title2)
                 Spacer()
                     .frame(width: 17)
-                VStack{
+                VStack(alignment: .leading) {
                     Text("UV INDEX")
                         .frame(width: 80, alignment: .leading)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    Text("Very High")
+                    Text(vm.getIndex(uvi: Int(uvi)))
                         .fontWeight(.bold)
                 }
                 Spacer()
             }
             Divider()
-
             HStack{
                 Image(systemName: "timer")
                     .font(.title2)
                 Spacer()
                     .frame(width: 17)
-                VStack{
+                VStack(alignment: .leading) {
                     Text("BURN IN")
                         .frame(width: 80, alignment: .leading)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    Text("20 Minute")
+                    Text(vm.getBurninTime(uvi: Int(uvi)))
                         .fontWeight(.bold)
                 }
                 Spacer()
@@ -91,9 +104,7 @@ struct DashboardView: View {
                 }
             }
         }
-        
     }
-    
 }
 
 struct DashboardView_Previews: PreviewProvider {
