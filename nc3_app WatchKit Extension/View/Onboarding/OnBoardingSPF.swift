@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnBoardingSPF: View {
+    @State var showChooseSpfSheet: Bool = false
+    
     var body: some View {
         NavigationView{
             ScrollView {
@@ -16,14 +18,16 @@ struct OnBoardingSPF: View {
                         Image(systemName: "sun.max")
                             .font(.title)
                         Spacer()
-                        }
-                        Text("Choose your SPF sunscreen for us to determine how long the sunscreen will last")
+                    }
+                    Text("Choose your SPF sunscreen for us to determine how long the sunscreen will last")
                     
-                    NavigationLink(destination: OnBoardingSetTime()
-                    ) {
+                    Button {
+                        showChooseSpfSheet = true
+                    } label: {
                         Text("Choose")
-                            .foregroundColor(.black)
-                    }.buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                            .foregroundColor(.white)
+                    }
+                    .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
                     
                     NavigationLink(destination: ParentView()
                     ) {
@@ -33,12 +37,17 @@ struct OnBoardingSPF: View {
                 }
                 
             }
-        }.navigationBarBackButtonHidden(true)
+            .sheet(isPresented: $showChooseSpfSheet) {
+                OnBoardingChooseSPF(showChooseSpfSheet: $showChooseSpfSheet)
+            }
+            
+            .navigationBarBackButtonHidden(true)   
+        }
     }
 }
 
 struct OnBoardingSPF_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingSPF()
+        OnBoardingSPF(showChooseSpfSheet: true)
     }
 }

@@ -26,3 +26,5 @@ struct Weather: Codable {
     let main: String
     let description: String
 }
+
+// notification center buat kasih tau tiap berapa detik sekali call api

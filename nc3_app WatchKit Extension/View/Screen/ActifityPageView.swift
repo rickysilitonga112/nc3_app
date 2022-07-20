@@ -58,6 +58,7 @@ struct ActifityPageView: View {
                             .frame(width: 180, alignment: .leading)
                         Text("Change SPF")
                             .frame(width: 180, alignment: .leading)
+                            .font(.footnote)
                         
                     }
                 }
@@ -71,6 +72,7 @@ struct ActifityPageView: View {
                             .frame(width: 180, alignment: .leading)
                         Text("Change Reminder")
                             .frame(width: 180, alignment: .leading)
+                            .font(.footnote)
                         
                     }
                 }
