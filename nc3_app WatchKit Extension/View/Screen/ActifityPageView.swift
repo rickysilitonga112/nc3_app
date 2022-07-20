@@ -10,71 +10,72 @@ import SwiftUI
 struct ActifityPageView: View {
     var body: some View {
         ScrollView{
-            VStack(spacing: 10){
+            VStack(alignment: .leading, spacing: 5){
                 Text("PERSONAL INFO")
                     .frame(width: 190, alignment: .leading)
                     .foregroundColor(.gray)
                     .font(.caption2)
                 Divider()
                 
-                Text("Re-Apply Sunscreen")
+                Text("RE-APPLY SUNSCREEN")
                     .frame(width: 190, alignment: .leading)
                     .foregroundColor(.gray)
                     .font(.footnote)
+                Text("12:30")
+                    .font(.body)
                 Divider()
                 
-                Text("Last Sunscreen Apply")
+                Text("LAST SUNSCREEN APPLY")
                     .frame(width: 190, alignment: .leading)
                     .foregroundColor(.gray)
                     .font(.footnote)
+                Text("07:40")
+                    .font(.body)
                 Divider()
                 
                 Button {
                     //print(selection)
                 } label: {
                     Text("Apply Sunscreen")
-                        .foregroundColor(.white)
-                        .frame(width: 180, alignment: .leading)
+                        .foregroundColor(.black)
+                        .frame(width: 180, alignment: .center)
                 }
-                .buttonStyle(BorderedButtonStyle(tint: Color.gray.opacity(255)))
-                Spacer()
-                    .frame(height: 30)
-                VStack(spacing: 10){
-                    Text("SETTINGS")
-                        .frame(width: 190, alignment: .leading)
-                        .foregroundColor(.gray)
-                        .font(.caption2)
-                    Divider()
+                .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+            }.padding(.bottom, 17)
+            
+            VStack(alignment: .leading, spacing: 5){
+                Text("SETTING")
+                    .frame(width: 190, alignment: .leading)
+                    .foregroundColor(.gray)
+                    .font(.caption2)
+                
+                Button {
                     
-                    Button {
-                        //print(selection)
-                    } label: {
-                        VStack{
-                            Text("SPF 50")
-                                .foregroundColor(.white)
-                                .frame(width: 180, alignment: .leading)
-                            Text("Sunscreen SPF")
-                                .font(.footnote)
-                                .foregroundColor(.white)
-                                .frame(width: 180, alignment: .leading)
-                        }
-                  
-                    }
-                    .buttonStyle(BorderedButtonStyle(tint: Color.gray.opacity(255)))
-                    
-                    Button {
-                        //print(selection)
-                    } label: {
-                        Text("Sunscreen Reminder")
+                } label: {
+                    VStack {
+                        Text("SPF 30")
                             .foregroundColor(.white)
                             .frame(width: 180, alignment: .leading)
+                        Text("Change SPF")
+                            .frame(width: 180, alignment: .leading)
+                        
                     }
-                    .buttonStyle(BorderedButtonStyle(tint: Color.gray.opacity(255)))
-
-
                 }
-
+                
+                Button {
+                    
+                } label: {
+                    VStack {
+                        Text("07:30")
+                            .foregroundColor(.white)
+                            .frame(width: 180, alignment: .leading)
+                        Text("Change Reminder")
+                            .frame(width: 180, alignment: .leading)
+                        
+                    }
+                }
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 }

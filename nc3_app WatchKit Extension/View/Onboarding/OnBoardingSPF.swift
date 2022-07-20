@@ -9,33 +9,31 @@ import SwiftUI
 
 struct OnBoardingSPF: View {
     var body: some View {
-        ScrollView{
-            VStack(spacing: 10){
-                ForEach(0..<1){_ in
+        NavigationView{
+            ScrollView {
+                VStack(spacing: 10){
                     HStack{
-                        Image("sun2")
-                            .resizable()
-                            .frame(width: 26, height: 26)
-                            .padding()
+                        Image(systemName: "sun.max")
+                            .font(.title)
                         Spacer()
-                    }
-                    Text("Choose your SPF sunscreen for us to determine how long the sunscreen will last")
+                        }
+                        Text("Choose your SPF sunscreen for us to determine how long the sunscreen will last")
                     
-                    Capsule()
-                        .frame(width: 184, height: 48, alignment: .center)
-                        .foregroundColor(.gray)
-                        .overlay {
-                            Text("Choose")
-                        }
-                    Capsule()
-                        .frame(width: 184, height: 48, alignment: .center)
-                        .foregroundColor(.gray)
-                        .overlay {
-                            Text("Choose later")
-                        }
+                    NavigationLink(destination: OnBoardingSetTime()
+                    ) {
+                        Text("Choose")
+                            .foregroundColor(.black)
+                    }.buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                    
+                    NavigationLink(destination: ParentView()
+                    ) {
+                        Text("Choose Later")
+                            .foregroundColor(.white)
+                    }
                 }
+                
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

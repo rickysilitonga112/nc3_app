@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+//        ParentView()
+        OnboardingLocation()
 //        DashboardView()
-        ChooseSunscreenView()
-//        OnBoardingChooseSPF()
+//        ChooseSunscreenView()
+////        OnBoardingChooseSPF()
     }
 }
 

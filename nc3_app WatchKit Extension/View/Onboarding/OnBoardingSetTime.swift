@@ -9,33 +9,31 @@ import SwiftUI
 
 struct OnBoardingSetTime: View {
     var body: some View {
-        ScrollView{
-            VStack(spacing: 10){
-                ForEach(0..<1){_ in
+        NavigationView{
+            ScrollView {
+                VStack(spacing: 10){
                     HStack{
-                        Image("time2")
-                            .resizable()
-                            .frame(width: 30, height: 26)
-                            .padding()
+                        Image(systemName: "clock.badge.checkmark")
+                            .font(.title)
                         Spacer()
-                    }
-                    Text("Setting the first time to use sunscreen to schedule a reminder on your apple watch")
+                        }
+                        Text("Set the first time you use sunscreen to schedule a reminder on your apple watch.")
                     
-                    Capsule()
-                        .frame(width: 184, height: 48, alignment: .center)
-                        .foregroundColor(.gray)
-                        .overlay {
-                            Text("Set Time")
-                        }
-                    Capsule()
-                        .frame(width: 184, height: 48, alignment: .center)
-                        .foregroundColor(.gray)
-                        .overlay {
-                            Text("Set Time later")
-                        }
+                    NavigationLink(destination: OnBoardingSetTime()
+                    ) {
+                        Text("Set Time")
+                            .foregroundColor(.black)
+                    }.buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                    
+                    NavigationLink(destination: ParentView()
+                    ) {
+                        Text("Set Time Later")
+                            .foregroundColor(.white)
+                    }
                 }
+                
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 
