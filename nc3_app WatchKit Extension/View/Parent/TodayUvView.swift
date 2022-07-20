@@ -22,6 +22,7 @@ struct UVWeather: Hashable {
 
 struct TodayUVView: View {
     
+//    @StateObject var viewModel = ViewModel()
     @State var uvWeathers = [
         UVWeather(time: "06:00", degree: 18, weather: "sun", uvIndex: 0),
         UVWeather(time: "07:00", degree: 20, weather: "sun", uvIndex: 2),
@@ -29,7 +30,7 @@ struct TodayUVView: View {
         UVWeather(time: "09:00", degree: 23, weather: "sun", uvIndex: 10),
         UVWeather(time: "10:00", degree: 25, weather: "sun", uvIndex: 7),
     ]
-    
+
     @State var uvTime: [String] = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
     @State var degree: [String] = ["18", "19", "20", "21","22", "23", "24", "25", "26", "27", "28", "29", "30"]
     @State var weather: [String] = ["sun.max.fill", "cloud.sun.fill", "cloud.rain.fill", "cloud.bolt.rain.fill", "wind"]
