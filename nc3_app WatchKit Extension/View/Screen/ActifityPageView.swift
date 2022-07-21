@@ -16,19 +16,27 @@ struct ActifityPageView: View {
                 
                 HStack {
                     Spacer()
+                        .frame(width: 20)
                     Text("PERSONAL INFO")
                         .frame(width: 190, alignment: .leading)
                         .foregroundColor(.gray)
-                    .font(.footnote)
+                        .font(.footnote)
                 }
-                Divider()
+                HStack {
+                    Spacer()
+                    Rectangle()
+                        .frame(width: 170, height: 0.5, alignment: .center)
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+               
                 
                 HStack {
                     Spacer()
                     Text("RE-APPLY SUNSCREEN")
                         .frame(width: 190, alignment: .leading)
                         .foregroundColor(.gray)
-                    .font(.footnote)
+                        .font(.footnote)
                 }
                 HStack {
                     Spacer()
@@ -36,14 +44,19 @@ struct ActifityPageView: View {
                         .frame(width: 190, alignment: .leading)
                         .font(.body)
                 }
-                Divider()
-                
+                HStack {
+                    Spacer()
+                    Rectangle()
+                        .frame(width: 170, height: 0.5, alignment: .center)
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
                 HStack {
                     Spacer()
                     Text("LAST SUNSCREEN APPLY")
                         .frame(width: 190, alignment: .leading)
                         .foregroundColor(.gray)
-                    .font(.footnote)
+                        .font(.footnote)
                 }
                 HStack {
                     Spacer()
@@ -51,16 +64,27 @@ struct ActifityPageView: View {
                         .font(.body)
                         .frame(width: 190, alignment: .leading)
                 }
-                Divider()
-                
-                Button {
-                    // test
-                } label: {
-                    Text("Apply Sunscreen")
-                        .foregroundColor(.black)
-                        .frame(width: 180, alignment: .center)
+                HStack {
+                    Spacer()
+                    Rectangle()
+                        .frame(width: 170, height: 0.5, alignment: .center)
+                        .foregroundColor(.gray)
+                    Spacer()
                 }
-                .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                
+                HStack {
+                    Spacer()
+                    Button {
+                        // test
+                    } label: {
+                        Text("Apply Sunscreen")
+                            .foregroundColor(.black)
+                            .frame(width: 180, alignment: .center)
+                    }
+                    .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                    .frame(width: 170)
+                    Spacer()
+                }
             }
             .padding(.bottom, 17)
             
@@ -70,7 +94,7 @@ struct ActifityPageView: View {
                     Text("SETTING")
                         .frame(width: 190, alignment: .leading)
                         .foregroundColor(.gray)
-                    .font(.caption2)
+                        .font(.caption2)
                 }
                 
                 Button {
@@ -79,11 +103,10 @@ struct ActifityPageView: View {
                     VStack {
                         Text("SPF 30")
                             .foregroundColor(.white)
-                            .frame(width: 180, alignment: .leading)
+                            .frame(width: 155, alignment: .leading)
                         Text("Change SPF")
-                            .frame(width: 180, alignment: .leading)
+                            .frame(width: 155, alignment: .leading)
                             .font(.footnote)
-                        
                     }
                 }
                 
@@ -93,15 +116,15 @@ struct ActifityPageView: View {
                     VStack {
                         Text("07:30")
                             .foregroundColor(.white)
-                            .frame(width: 180, alignment: .leading)
+                            .frame(width: 155, alignment: .leading)
                         Text("Change Reminder")
-                            .frame(width: 180, alignment: .leading)
+                            .frame(width: 155, alignment: .leading)
                             .font(.footnote)
-                        
                     }
                 }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(width: 170, alignment: .leading)
+            
         }
     }
 }
@@ -109,6 +132,6 @@ struct ActifityPageView: View {
 struct ActifityPageView_Previews: PreviewProvider {
     static var previews: some View {
         ActifityPageView()
-            
+        
     }
 }
