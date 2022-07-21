@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OnboardingLocation: View {
     @StateObject var locationManager = LocationManager.shared
+    @StateObject var vm = BaseViewModel.shared
     @State var nextPage: Bool = false
     
     var body: some View {
@@ -28,6 +29,14 @@ struct OnboardingLocation: View {
                 } else {
                     print("Location is: \(locationManager.statusString)")
                 }
+                
+                vm.latitude = locationManager.latitude
+                vm.longitude = locationManager.longitude
+                
+                DispatchQueue.main.async {
+                    vm.fetchData(lat: locationManager.latitude, lon: locationManager.longitude)
+                }
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     nextPage.toggle()
                 }

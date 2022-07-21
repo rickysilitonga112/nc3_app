@@ -29,16 +29,21 @@ struct ParentView: View {
                     print("Location is: \(locationManager.statusString)")
                 }
                 
-                if let lat = locationManager.lastLocation?.coordinate.latitude {
-                    if let lon = locationManager.lastLocation?.coordinate.longitude {
-                        vm.latitude = lat
-                        vm.longitude = lon
-                        
-                        DispatchQueue.main.async {
-                            vm.fetchData(lat: lat, lon: lon)
-                        }
-                    }
+                vm.latitude = locationManager.latitude
+                vm.longitude = locationManager.longitude
+                
+                DispatchQueue.main.async {
+                    vm.fetchData(lat: locationManager.latitude, lon: locationManager.longitude)
                 }
+//
+//                if let lat = locationManager.lastLocation?.coordinate.latitude {
+//                    if let lon = locationManager.lastLocation?.coordinate.longitude {
+//                        vm.latitude = lat
+//                        vm.longitude = lon
+//
+//
+//                    }
+//                }
             }
             
             
