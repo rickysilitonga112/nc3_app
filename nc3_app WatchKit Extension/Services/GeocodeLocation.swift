@@ -20,14 +20,14 @@ class CLGeocoder : NSObject {
 }
 
 //var locationManager = LocationManager()
-
+//
 //let geoCoder = CLGeocoder()
-
+//
 //let userLatitude = locationManager.lastLocation?.coordinate.latitude ?? 0
 //let userLongitude = locationManager.lastLocation?.coordinate.longitude ?? 0
-
+//
 //let location = CLLocation(latitude: userLatitude, longitude: userLongitude)
-
+//
 //geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, _) -> Void in
 //
 //	placemarks?.forEach { (placemark) in
