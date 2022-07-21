@@ -28,7 +28,9 @@ struct OnboardingLocation: View {
                 } else {
                     print("Location is: \(locationManager.statusString)")
                 }
-                nextPage.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    nextPage.toggle()
+                }
                 
             } label: {
                 Text("Set Location")

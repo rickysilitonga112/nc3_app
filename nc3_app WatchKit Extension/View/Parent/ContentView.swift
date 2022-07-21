@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("username") var showOnboarding: Bool = true
+    @AppStorage("username") var showOnboarding: Bool = false
     var body: some View {
         NavigationView {
             if showOnboarding {

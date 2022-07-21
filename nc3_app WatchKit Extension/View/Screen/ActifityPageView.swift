@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ActifityPageView: View {
+    @StateObject var vm = BaseViewModel.shared
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .leading, spacing: 5){
@@ -35,6 +37,10 @@ struct ActifityPageView: View {
                 
                 Button {
                     //print(selection)
+                    
+                    print(vm.longitude)
+                    print(vm.latitude)
+                    print(vm.currentCondition)
                 } label: {
                     Text("Apply Sunscreen")
                         .foregroundColor(.black)

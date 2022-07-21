@@ -160,10 +160,10 @@
 		566FB1002886A2F8003C9C3B /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */,
+				1DB556062886B198005B576D /* ActifityPageView.swift */,
 				569F99A22881176A00964BA9 /* DashboardView.swift */,
 				565661D828856770002B6071 /* DailyConditionView.swift */,
-				1DB556062886B198005B576D /* ActifityPageView.swift */,
+				5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";

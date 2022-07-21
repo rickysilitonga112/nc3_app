@@ -10,8 +10,8 @@ import Foundation
 class BaseViewModel: ObservableObject {
     static let shared = BaseViewModel()
     
-    @Published var latitude: Double = 1
-    @Published var longitude: Double = 0
+    @Published var latitude: Double?
+    @Published var longitude: Double?
     
     @Published var currentCondition: Condition = Condition(dt: 0, temp: 0, uvi: 0, weather: [Weather(id: 0, main: "Unknown", description: "Unknown")])
     @Published var hourlyConditionArr: [Condition]?
@@ -22,7 +22,11 @@ class BaseViewModel: ObservableObject {
     private let apiKey: String = "a9deed7fe4a75cac2ac745df80c7e8aa"
     
     init() {
-        fetchData()
+        if let lat = latitude {
+            if let lon = longitude {
+                fetchData(lat: lat, lon: lon)
+            }
+        }
     }
     
     
@@ -122,9 +126,6 @@ class BaseViewModel: ObservableObject {
                         // use the data
                         if let result = self.decodeJson(safeData) {
                             DispatchQueue.main.async {
-                                self.latitude = result.lat
-                                self.longitude = result.lon
-                                
                                 self.currentCondition = result.current
                                 self.hourlyConditionArr = result.hourly
                             }

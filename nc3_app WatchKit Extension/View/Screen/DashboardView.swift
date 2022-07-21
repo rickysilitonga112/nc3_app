@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @StateObject var vm = BaseViewModel.shared
-    @ObservedObject var locationManager = LocationManager.shared
-    
     private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
+    
+    @StateObject var vm = BaseViewModel.shared
     
     var uvi: Double {
         return vm.currentCondition.uvi.rounded(.up)
@@ -28,14 +27,13 @@ struct DashboardView: View {
         return Int(vm.currentCondition.temp)
     }
     
-    init() {
-        locationManager.requestAuthorisation()
-        let userLatitude = locationManager.lastLocation?.coordinate.latitude ?? 0
-        let userLongitude = locationManager.lastLocation?.coordinate.longitude ?? 0
-        
-        vm.fetchData(lat: userLatitude, lon: userLongitude)
-        
-    }
+//    init() {
+//        locationManager.requestAuthorisation()
+//        let userLatitude = locationManager.lastLocation?.coordinate.latitude ?? 0
+//        let userLongitude = locationManager.lastLocation?.coordinate.longitude ?? 0
+//        
+//        vm.fetchData(lat: userLatitude, lon: userLongitude)
+//    }
     
     var body: some View {
         ScrollView {
