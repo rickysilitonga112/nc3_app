@@ -13,26 +13,44 @@ struct ActifityPageView: View {
     var body: some View {
         ScrollView{
             VStack(alignment: .leading, spacing: 5){
-                Text("PERSONAL INFO")
-                    .frame(width: 190, alignment: .leading)
-                    .foregroundColor(.gray)
-                    .font(.caption2)
+                
+                HStack {
+                    Spacer()
+                    Text("PERSONAL INFO")
+                        .frame(width: 190, alignment: .leading)
+                        .foregroundColor(.gray)
+                    .font(.footnote)
+                }
                 Divider()
                 
-                Text("RE-APPLY SUNSCREEN")
-                    .frame(width: 190, alignment: .leading)
-                    .foregroundColor(.gray)
+                HStack {
+                    Spacer()
+                    Text("RE-APPLY SUNSCREEN")
+                        .frame(width: 190, alignment: .leading)
+                        .foregroundColor(.gray)
                     .font(.footnote)
-                Text("12:30")
-                    .font(.body)
+                }
+                HStack {
+                    Spacer()
+                    Text("12:30")
+                        .frame(width: 190, alignment: .leading)
+                        .font(.body)
+                }
                 Divider()
                 
-                Text("LAST SUNSCREEN APPLY")
-                    .frame(width: 190, alignment: .leading)
-                    .foregroundColor(.gray)
+                HStack {
+                    Spacer()
+                    Text("LAST SUNSCREEN APPLY")
+                        .frame(width: 190, alignment: .leading)
+                        .foregroundColor(.gray)
                     .font(.footnote)
-                Text("07:40")
-                    .font(.body)
+                }
+                HStack {
+                    Spacer()
+                    Text("07:40")
+                        .font(.body)
+                        .frame(width: 190, alignment: .leading)
+                }
                 Divider()
                 
                 Button {
@@ -43,13 +61,17 @@ struct ActifityPageView: View {
                         .frame(width: 180, alignment: .center)
                 }
                 .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
-            }.padding(.bottom, 17)
+            }
+            .padding(.bottom, 17)
             
             VStack(alignment: .leading, spacing: 5){
-                Text("SETTING")
-                    .frame(width: 190, alignment: .leading)
-                    .foregroundColor(.gray)
+                HStack {
+                    Spacer()
+                    Text("SETTING")
+                        .frame(width: 190, alignment: .leading)
+                        .foregroundColor(.gray)
                     .font(.caption2)
+                }
                 
                 Button {
                     
@@ -87,5 +109,6 @@ struct ActifityPageView: View {
 struct ActifityPageView_Previews: PreviewProvider {
     static var previews: some View {
         ActifityPageView()
+            
     }
 }
