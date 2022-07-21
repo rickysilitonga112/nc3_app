@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
+	
+//	@State var cityName: String?
 
     private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
     
@@ -27,13 +29,23 @@ struct DashboardView: View {
     var temperature: Int {
         return Int(vm.currentCondition.temp)
     }
+	
     
 //    init() {
+//		let locationManager = LocationManager()
+//
 //        locationManager.requestAuthorisation()
 //        let userLatitude = locationManager.lastLocation?.coordinate.latitude ?? 0
 //        let userLongitude = locationManager.lastLocation?.coordinate.longitude ?? 0
-//        
+//
 //        vm.fetchData(lat: userLatitude, lon: userLongitude)
+//
+//		let location = CLLocation(latitude: userLatitude, longitude: userLongitude)
+//
+//		location.fetchCityName { city, error in guard let city = city, error == nil else { return }
+//			cityName = city
+//		}
+//
 //    }
     
     var body: some View {
