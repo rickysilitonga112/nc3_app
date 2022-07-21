@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DashboardView: View {
+
     private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
     
     @StateObject var vm = BaseViewModel.shared
@@ -112,7 +113,8 @@ struct DashboardView: View {
                     } .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-        }
+		} .navigationTitle("Batam")
+			.navigationBarTitleDisplayMode(.inline)
     }
 }
 
