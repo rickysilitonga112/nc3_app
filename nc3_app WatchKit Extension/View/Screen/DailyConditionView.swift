@@ -11,12 +11,7 @@ import SwiftUI
 
 struct DailyConditionView: View {
     @StateObject var vm = BaseViewModel.shared
-    
-    @State var uvTime: [String] = ["06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
-    @State var degree: [String] = ["18", "19", "20", "21","22", "23", "24", "25", "26", "27", "28", "29", "30"]
-    @State var weather: [String] = ["sun.max.fill", "cloud.sun.fill", "cloud.rain.fill", "cloud.bolt.rain.fill", "wind"]
-    @State var uvIndex: [String] = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
-    
+    private let screenWidth = WKInterfaceDevice.current().screenBounds.width
     
     @State var uvWeathers = [
         UVWeather(time: "06:00", degree: 18, weather: "sun", uvIndex: 0),
@@ -25,44 +20,82 @@ struct DailyConditionView: View {
         UVWeather(time: "09:00", degree: 23, weather: "sun", uvIndex: 10),
         UVWeather(time: "10:00", degree: 25, weather: "sun", uvIndex: 7),
     ]
-
+    
+    var hourlyCondition: [Condition] {
+        var twelveHour: [Condition] = []
+        
+        for i in 1...12 {
+            twelveHour.append(vm.hourlyConditionArr![i])
+        }
+        print("data dalam hourly: \(vm.hourlyConditionArr?.count ?? 0)")
+        return twelveHour
+    }
     
     var body: some View {
-        List(uvWeathers, id: \.self) { item in
+        List(hourlyCondition, id: \.self) { condition in
             HStack {
-                //                        Text(uvTime[index])
-                Text(item.time)
+                Text("\(vm.getFormatTime(time: condition.dt))")
                 
                 Spacer()
-                HStack {
-                    
-                    //                            Text("\(degree[index])°")
-                    Text("\(item.degree)°")
-                    //                            Image ("sun")
-                    Image(systemName: "sun.max.fill")
-                    //                        Image("\(item.weather)")
-                        .foregroundColor(.orange)
-                    
-                    //                                .resizable()
-                    //                                .frame(width: 28, height: 28)
-                    Circle()
-                        .frame(width: 22, height: 22)
-                        .foregroundColor(getUVColor(uvIndex: item.uvIndex))
-                        .overlay {
-                            Text("\(item.uvIndex)")
-                                .font(.headline)
-                                .foregroundColor(.black)
-                        }
-                }
+                
+                Text("\(Int(condition.temp))°")
+                
+                Spacer()
+                
+                Image(systemName: "\(vm.getConditionName(conditionId: condition.weather.first?.id ?? 0))")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 28)
+                
+                Spacer()
+                
+                Circle()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 28)
+                    .foregroundColor(getUVColor(uvIndex: Int(condition.uvi.rounded(.up))))
+                    .overlay(
+                        Text("\(Int(condition.uvi.rounded(.up)))")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                            .fontWeight(.bold)
+                    )
+                
             }
-            .navigationTitle("Today UV")
-            .foregroundColor(.white)
-            //                    Divider()
-            //                }
-            
-            //            }
+            .frame(maxWidth: .infinity)
+            .onAppear {
+//                if let lat = vm.latitude,
+//                   let lon = vm.longitude {
+//                    vm.fetchData(lat: lat, lon: lon)
+//                }
+            }
         }
+        
+        //        List(uvWeathers, id: \.self) { item in
+        //            HStack {
+        //                Text(item.time)
+        //
+        //                Spacer()
+        //                HStack {
+        //                    Text("\(item.degree)°")
+        //                    Image(systemName: "sun.max.fill")
+        //                        .foregroundColor(.orange)
+        //                    Circle()
+        //                        .frame(width: 22, height: 22)
+        //                        .foregroundColor(getUVColor(uvIndex: item.uvIndex))
+        //                        .overlay {
+        //                            Text("\(item.uvIndex)")
+        //                                .font(.headline)
+        //                                .foregroundColor(.black)
+        //                        }
+        //                }
+        //            }
+        //            .navigationTitle("Today UV")
+        //            .foregroundColor(.white)
+        //        }
+        
+        .navigationTitle("Today UVI")
     }
+    
     
     func getUVColor(uvIndex: Int) -> Color {
         if uvIndex < 3 {

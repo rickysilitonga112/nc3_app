@@ -18,7 +18,7 @@
 		56694D6828884DAA004BB01C /* Picker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56694D6728884DAA004BB01C /* Picker+Extension.swift */; };
 		569F99A32881176A00964BA9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A22881176A00964BA9 /* DashboardView.swift */; };
 		569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */; };
-		56A296A628801CDC000EC91A /* nc3_app WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		56A296A628801CDC000EC91A /* UVFun.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56A296A528801CDC000EC91A /* UVFun.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56A296AB28801CDD000EC91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A296AA28801CDD000EC91A /* Assets.xcassets */; };
 		56A296B128801CDD000EC91A /* nc3_app WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 56A296B028801CDD000EC91A /* nc3_app WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		56A296B628801CDD000EC91A /* nc3_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A296B528801CDD000EC91A /* nc3_appApp.swift */; };
@@ -71,7 +71,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				56A296A628801CDC000EC91A /* nc3_app WatchKit App.app in Embed Watch Content */,
+				56A296A628801CDC000EC91A /* UVFun.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,8 +90,8 @@
 		56694D6728884DAA004BB01C /* Picker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Extension.swift"; sourceTree = "<group>"; };
 		569F99A22881176A00964BA9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView-ViewModel.swift"; sourceTree = "<group>"; };
-		56A296A128801CDC000EC91A /* nc3_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nc3_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nc3_app WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A296A128801CDC000EC91A /* UVFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UVFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A296A528801CDC000EC91A /* UVFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UVFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A296AA28801CDD000EC91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56A296B028801CDD000EC91A /* nc3_app WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "nc3_app WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A296B528801CDD000EC91A /* nc3_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nc3_appApp.swift; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 		56A296A228801CDC000EC91A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				56A296A128801CDC000EC91A /* nc3_app.app */,
-				56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */,
+				56A296A128801CDC000EC91A /* UVFun.app */,
+				56A296A528801CDC000EC91A /* UVFun.app */,
 				56A296B028801CDD000EC91A /* nc3_app WatchKit Extension.appex */,
 			);
 			name = Products;
@@ -279,7 +279,7 @@
 			);
 			name = nc3_app;
 			productName = nc3_app;
-			productReference = 56A296A128801CDC000EC91A /* nc3_app.app */;
+			productReference = 56A296A128801CDC000EC91A /* UVFun.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		56A296A428801CDC000EC91A /* nc3_app WatchKit App */ = {
@@ -296,7 +296,7 @@
 			);
 			name = "nc3_app WatchKit App";
 			productName = "nc3_app WatchKit App";
-			productReference = 56A296A528801CDC000EC91A /* nc3_app WatchKit App.app */;
+			productReference = 56A296A528801CDC000EC91A /* UVFun.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		56A296AF28801CDD000EC91A /* nc3_app WatchKit Extension */ = {
@@ -549,11 +549,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"nc3_app WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = T5F6J6ZS7D;
+				DEVELOPMENT_TEAM = C6YQVA2JQB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nc3_app WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nc3_app WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = UVFun;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = nc3_app_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app will acces location to provide weaher and UV Index based on your location";
@@ -582,11 +582,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"nc3_app WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = T5F6J6ZS7D;
+				DEVELOPMENT_TEAM = C6YQVA2JQB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nc3_app WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "nc3_app WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = UVFun;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = nc3_app_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app will acces location to provide weaher and UV Index based on your location";
@@ -616,14 +616,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T5F6J6ZS7D;
+				DEVELOPMENT_TEAM = C6YQVA2JQB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = nc3_app_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "nc3_app WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rsilitonga.nc3-app.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UVFun;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -641,14 +640,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T5F6J6ZS7D;
+				DEVELOPMENT_TEAM = C6YQVA2JQB;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = nc3_app_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = "nc3_app WatchKit App";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rsilitonga.nc3-app.watchkitapp";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UVFun;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -663,10 +661,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T5F6J6ZS7D;
+				DEVELOPMENT_TEAM = C6YQVA2JQB;
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rsilitonga.nc3-app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UVFun;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -676,10 +674,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T5F6J6ZS7D;
+				DEVELOPMENT_TEAM = C6YQVA2JQB;
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rsilitonga.nc3-app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UVFun;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

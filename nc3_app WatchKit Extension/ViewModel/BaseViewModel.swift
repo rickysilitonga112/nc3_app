@@ -17,9 +17,11 @@ class BaseViewModel: ObservableObject {
     @Published var hourlyConditionArr: [Condition]?
     
     
-    private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=a9deed7fe4a75cac2ac745df80c7e8aa"
+    private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=bd5e378503939ddaee76f12ad7a97608"
     private let baseURL: String = "https://api.openweathermap.org/data/2.5/onecall"
     private let apiKey: String = "a9deed7fe4a75cac2ac745df80c7e8aa"
+    private let apiKey2: String = "0ab949fd4f968111f901fa4a66d4a2cf"
+    private let newApiKey: String = "5771794903fa3af42664c0c71443d6d8"
     
     init() {
         if let latitude = latitude {
@@ -27,6 +29,13 @@ class BaseViewModel: ObservableObject {
                 fetchData(lat: latitude, lon: longitude)
             }
         }
+    }
+    
+    // api request
+    func fetchData(lat: Double, lon: Double) {
+        
+        let url: String = baseURL + "?appid=\(newApiKey)" + "&exclude=minutely,daily" + "&lat=\(lat)" + "&lon=\(lon)" + "&units=metric"
+        performRequest(with: url)
     }
     
     
@@ -94,7 +103,7 @@ class BaseViewModel: ObservableObject {
     
     func getFormatTime(time: Int) -> String {
         if time == 0 {
-            return "0"
+            return "Unknown"
         }
         
         let time = Double(time)
@@ -104,16 +113,10 @@ class BaseViewModel: ObservableObject {
         dateFormatter.timeStyle = DateFormatter.Style.medium //Set time style
         dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
         dateFormatter.timeZone = .current
+        dateFormatter.dateFormat = "hh:mm"
         let localDate = dateFormatter.string(from: date)
         
         return localDate
-    }
-    
-    // api request
-    func fetchData(lat: Double, lon: Double) {
-        
-        let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=\(lat)" + "&lon=\(lon)" + "&units=metric"
-        performRequest(with: url)
     }
     
     private func performRequest(with url: String) {

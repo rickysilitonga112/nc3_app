@@ -59,7 +59,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-//        lastLocation = location
+        lastLocation = location
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
         
