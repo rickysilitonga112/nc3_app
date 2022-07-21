@@ -34,7 +34,7 @@ struct OnboardingLocation: View {
                 vm.longitude = locationManager.longitude
                 
                 DispatchQueue.main.async {
-                    vm.fetchData(lat: locationManager.latitude, lon: locationManager.longitude)
+                    vm.fetchData()
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

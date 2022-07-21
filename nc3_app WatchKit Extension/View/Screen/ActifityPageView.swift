@@ -36,11 +36,7 @@ struct ActifityPageView: View {
                 Divider()
                 
                 Button {
-                    //print(selection)
-                    
-                    print(vm.longitude)
-                    print(vm.latitude)
-                    print(vm.currentCondition)
+                    // test
                 } label: {
                     Text("Apply Sunscreen")
                         .foregroundColor(.black)

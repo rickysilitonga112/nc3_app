@@ -33,7 +33,7 @@ struct ParentView: View {
                 vm.longitude = locationManager.longitude
                 
                 DispatchQueue.main.async {
-                    vm.fetchData(lat: locationManager.latitude, lon: locationManager.longitude)
+                    vm.fetchData()
                 }
 //
 //                if let lat = locationManager.lastLocation?.coordinate.latitude {

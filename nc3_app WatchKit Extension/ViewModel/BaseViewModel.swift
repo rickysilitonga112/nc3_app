@@ -22,11 +22,7 @@ class BaseViewModel: ObservableObject {
     private let apiKey: String = "a9deed7fe4a75cac2ac745df80c7e8aa"
     
     init() {
-        if let lat = latitude {
-            if let lon = longitude {
-                fetchData(lat: lat, lon: lon)
-            }
-        }
+       fetchData()
     }
     
     
@@ -110,10 +106,14 @@ class BaseViewModel: ObservableObject {
     }
     
     // api request
-    func fetchData(lat: Double = 0, lon: Double = 0) {
+    func fetchData() {
         
-        let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=\(lat)&lon=\(lon)" + "&units=metric"
-        performRequest(with: url)
+        if let latitude = latitude {
+            if let longitude = longitude {
+                let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=\(latitude)" + "&lon=\(longitude)" + "&units=metric"
+                performRequest(with: url)
+            }
+        }
     }
     
     private func performRequest(with url: String) {
