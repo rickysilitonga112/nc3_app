@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct OnboardingLocation: View {
-    @StateObject var locationManager = LocationManager.shared
+//    @StateObject var locationManager = LocationManager.shared
     @StateObject var vm = BaseViewModel.shared
     @State var nextPage: Bool = false
+    
+    
+    @StateObject var locationManager = LocationManager()
+    
+    var userLatitude: Double {
+        return locationManager.lastLocation?.coordinate.latitude ?? 0
+    }
+    
+    var userLongitude: Double {
+        return locationManager.lastLocation?.coordinate.longitude ?? 0
+    }
     
     var body: some View {
         VStack(spacing: 10){
@@ -34,7 +45,7 @@ struct OnboardingLocation: View {
                 vm.longitude = locationManager.longitude
                 
                 DispatchQueue.main.async {
-                    vm.fetchData()
+                    vm.fetchData(lat: userLatitude, lon: userLongitude)
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

@@ -11,7 +11,15 @@ struct ParentView: View {
     @State var currentView = 2
     
     @StateObject var vm = BaseViewModel.shared
-    @StateObject var locationManager = LocationManager.shared
+    @StateObject var locationManager = LocationManager()
+    
+    var userLatitude: Double {
+        return locationManager.lastLocation?.coordinate.latitude ?? 0
+    }
+    
+    var userLongitude: Double {
+        return locationManager.lastLocation?.coordinate.longitude ?? 0
+    }
     
     var body: some View {
         TabView(selection: $currentView) {
@@ -23,17 +31,12 @@ struct ParentView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 print("Tabview is appear")
                 
-                if locationManager.authorisationStatus == .notDetermined {
-                    locationManager.requestAuthorisation()
-                } else {
-                    print("Location is: \(locationManager.statusString)")
-                }
                 
-                vm.latitude = locationManager.latitude
-                vm.longitude = locationManager.longitude
+                vm.latitude = userLatitude
+                vm.longitude = userLongitude
                 
                 DispatchQueue.main.async {
-                    vm.fetchData()
+                    vm.fetchData(lat: userLatitude, lon: userLongitude)
                 }
 //
 //                if let lat = locationManager.lastLocation?.coordinate.latitude {
