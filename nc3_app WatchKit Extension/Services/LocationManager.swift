@@ -11,10 +11,10 @@ import Combine
 
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
     
-    private let locationManager = CLLocationManager()
     @Published var authorisationStatus: CLAuthorizationStatus?
-//    @Published var lastLocation: CLLocation?
+    @Published var lastLocation: CLLocation?
     
     @Published var latitude: Double = 0
     @Published var longitude: Double = 0
@@ -25,7 +25,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
@@ -62,6 +62,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 //        lastLocation = location
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
+        
+        BaseViewModel.shared.fetchData(lat: latitude, lon: longitude)
+        
         print(#function, location)
     }
     
