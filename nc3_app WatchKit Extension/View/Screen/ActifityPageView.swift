@@ -10,6 +10,10 @@ import SwiftUI
 struct ActifityPageView: View {
     @StateObject var vm = BaseViewModel.shared
     
+    @State var spf: Int = 15
+    
+    let components = Calendar.current.dateComponents([.hour, .minute], from: .now)
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .leading, spacing: 5){
@@ -37,6 +41,8 @@ struct ActifityPageView: View {
                 
                 Button {
                     // test
+                    
+                    vm.fetchData(lat: vm.latitude ?? 0, lon: vm.longitude ?? 0)
                 } label: {
                     Text("Apply Sunscreen")
                         .foregroundColor(.black)
@@ -80,6 +86,9 @@ struct ActifityPageView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            .onAppear {
+                print(components.hour)
+            }
         }
     }
 }

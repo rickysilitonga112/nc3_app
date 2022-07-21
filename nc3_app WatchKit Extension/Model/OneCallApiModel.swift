@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct OneCallApiModel: Codable {
+struct OneCallApiModel: Codable, Hashable {
     let lat: Double
     let lon: Double
     let current: Condition
     let hourly: [Condition]
 }
 
-struct Condition: Codable {
+struct Condition: Codable, Hashable {
     let dt: Int
     let temp: Double
     let uvi: Double
     let weather: [Weather]
 }
 
-struct Weather: Codable {
+struct Weather: Codable, Hashable {
     let id: Int
     let main: String
     let description: String
