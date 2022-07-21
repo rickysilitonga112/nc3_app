@@ -106,9 +106,7 @@ class BaseViewModel: ObservableObject {
     }
     
     // api request
-    func fetchData() {
-        let lat: Double = 37.773972
-        let lon: Double = -122.431297
+    func fetchData(lat: Double = 0, lon: Double = 0) {
         
         let url: String = baseURL + "?appid=\(apiKey)" + "&exclude=minutely,daily" + "&lat=\(lat)&lon=\(lon)" + "&units=metric"
         performRequest(with: url)
