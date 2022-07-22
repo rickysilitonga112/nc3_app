@@ -16,6 +16,7 @@
 		5602DF0E28804F390014FE22 /* ChooseSunscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */; };
 		565661D928856770002B6071 /* DailyConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565661D828856770002B6071 /* DailyConditionView.swift */; };
 		56694D6828884DAA004BB01C /* Picker+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56694D6728884DAA004BB01C /* Picker+Extension.swift */; };
+		566D15142889B21600F3B241 /* ChooseSpfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D15132889B21600F3B241 /* ChooseSpfView.swift */; };
 		569F99A32881176A00964BA9 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A22881176A00964BA9 /* DashboardView.swift */; };
 		569F99A52881178800964BA9 /* DashboardView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */; };
 		56A296A628801CDC000EC91A /* UVFun.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 56A296A528801CDC000EC91A /* UVFun.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -88,6 +89,7 @@
 		5602DF0D28804F390014FE22 /* ChooseSunscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSunscreenView.swift; sourceTree = "<group>"; };
 		565661D828856770002B6071 /* DailyConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyConditionView.swift; sourceTree = "<group>"; };
 		56694D6728884DAA004BB01C /* Picker+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Extension.swift"; sourceTree = "<group>"; };
+		566D15132889B21600F3B241 /* ChooseSpfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSpfView.swift; sourceTree = "<group>"; };
 		569F99A22881176A00964BA9 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		569F99A42881178800964BA9 /* DashboardView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView-ViewModel.swift"; sourceTree = "<group>"; };
 		56A296A128801CDC000EC91A /* UVFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UVFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,6 +231,7 @@
 				566FB0FF288699CC003C9C3B /* Parent */,
 				566FB0FD28869745003C9C3B /* Onboarding */,
 				566FB1002886A2F8003C9C3B /* Screen */,
+				566D15132889B21600F3B241 /* ChooseSpfView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				56A296BC28801CDD000EC91A /* NotificationView.swift in Sources */,
 				A49D9EC328870247005E7A7F /* ParentView.swift in Sources */,
 				A4662C602888367D0058D5A9 /* ComplicationViews.swift in Sources */,
+				566D15142889B21600F3B241 /* ChooseSpfView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

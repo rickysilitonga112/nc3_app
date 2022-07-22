@@ -10,89 +10,106 @@ import SwiftUI
 struct ActifityPageView: View {
     @StateObject var vm = BaseViewModel.shared
     
-    @State var spf: Int = 15
+    var spf: Int {
+        return vm.choosenSpf
+    }
+    @State var isApplySunscreen: Bool = false
     
-    let components = Calendar.current.dateComponents([.hour, .minute], from: .now)
+    @State var components = Calendar.current.dateComponents([.hour, .minute], from: .now)
+    @State var reapplyHour: Int = 0
+    @State var reapplyMinute: Int = 0
+    
+    @State var lastApplyHour: Int = 0
+    @State var lastApplyMinute: Int = 0
+    
+    @State var goToChooseSpf: Bool = false
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack(alignment: .leading, spacing: 5){
+                // sunscreen info
+                if isApplySunscreen {
+                    VStack {
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Text("RE-APPLY SUNSCREEN")
+                                    .frame(width: 190, alignment: .leading)
+                                    .foregroundColor(.gray)
+                                    .font(.footnote)
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(reapplyHour) : \(reapplyMinute)")
+                                    .frame(width: 190, alignment: .leading)
+                                    .font(.body)
+                            }
+                        }
+                        
+                        Divider()
+                        
+                        VStack {
+                            HStack {
+                                Spacer()
+                                Text("LAST APPLY SUNSCREEN ")
+                                    .frame(width: 190, alignment: .leading)
+                                    .foregroundColor(.gray)
+                                    .font(.footnote)
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(lastApplyHour) : \(lastApplyMinute)")
+                                    .font(.body)
+                                    .frame(width: 190, alignment: .leading)
+                            }
+                        }
+                        
+                        Divider()
+                    }
+                }
                 
-                HStack {
-                    Spacer()
-                        .frame(width: 20)
-                    Text("PERSONAL INFO")
-                        .frame(width: 190, alignment: .leading)
-                        .foregroundColor(.gray)
-                        .font(.footnote)
-                }
-                HStack {
-                    Spacer()
-                    Rectangle()
-                        .frame(width: 170, height: 0.5, alignment: .center)
-                        .foregroundColor(.gray)
-                    Spacer()
-                }
-               
-                
-                HStack {
-                    Spacer()
-                    Text("RE-APPLY SUNSCREEN")
-                        .frame(width: 190, alignment: .leading)
-                        .foregroundColor(.gray)
-                        .font(.footnote)
-                }
-                HStack {
-                    Spacer()
-                    Text("12:30")
-                        .frame(width: 190, alignment: .leading)
-                        .font(.body)
-                }
-                HStack {
-                    Spacer()
-                    Rectangle()
-                        .frame(width: 170, height: 0.5, alignment: .center)
-                        .foregroundColor(.gray)
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    Text("LAST SUNSCREEN APPLY")
-                        .frame(width: 190, alignment: .leading)
-                        .foregroundColor(.gray)
-                        .font(.footnote)
-                }
-                HStack {
-                    Spacer()
-                    Text("07:40")
-                        .font(.body)
-                        .frame(width: 190, alignment: .leading)
-                }
-                HStack {
-                    Spacer()
-                    Rectangle()
-                        .frame(width: 170, height: 0.5, alignment: .center)
-                        .foregroundColor(.gray)
-                    Spacer()
-                }
                 
                 HStack {
                     Spacer()
                     Button {
+                        withAnimation {
+                            isApplySunscreen = true
+                        }
                         // test
+                        if let hour = components.hour,
+                           let minute = components.minute {
+                            lastApplyHour = hour
+                            lastApplyMinute = minute
+                        }
+                        
+                        let spfToTime = spf * 10 * 60
+                        components =  Calendar.current.dateComponents([.hour, .minute], from: .now + Double(spfToTime))
+                        
+                        if let hour = components.hour,
+                           let minute = components.minute {
+                            reapplyHour = hour
+                            reapplyMinute = minute
+                        }
+                        
+                        
                     } label: {
                         Text("Apply Sunscreen")
                             .foregroundColor(.black)
                             .frame(width: 180, alignment: .center)
                     }
-                    .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+                    .buttonStyle(BorderedButtonStyle(tint: !isApplySunscreen ? Color.orange.opacity(255) : Color.gray.opacity(255)))
                     .frame(width: 170)
                     Spacer()
                 }
             }
             .padding(.bottom, 17)
             
+            
+            
+            // action button
             VStack(alignment: .leading, spacing: 5){
+                // title
+                
                 HStack {
                     Spacer()
                     Text("SETTING")
@@ -102,33 +119,34 @@ struct ActifityPageView: View {
                 }
                 
                 Button {
-                    
+                    goToChooseSpf.toggle()
                 } label: {
                     VStack {
-                        Text("SPF 30")
-                            .foregroundColor(.white)
-                            .frame(width: 155, alignment: .leading)
-                        Text("Change SPF")
-                            .frame(width: 155, alignment: .leading)
-                            .font(.footnote)
+                        HStack {
+                            Text("07:30")
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                        }
+                        HStack {
+                            Text("Change Reminder")
+                                .font(.footnote)
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                        }
                     }
                 }
+                .buttonStyle(BorderedButtonStyle(tint: Color.gray.opacity(255)))
+                .background(
+                    NavigationLink(destination: ChooseSpfView().navigationBarHidden(true), isActive: $goToChooseSpf , label: {EmptyView()})
+                )
                 
-                Button {
-                    
-                } label: {
-                    VStack {
-                        Text("07:30")
-                            .foregroundColor(.white)
-                            .frame(width: 155, alignment: .leading)
-                        Text("Change Reminder")
-                            .frame(width: 155, alignment: .leading)
-                            .font(.footnote)
-                    }
-                }
+                
             }
             .frame(width: 170, alignment: .leading)
-            
+         
+            .navigationTitle("Activity")
         }
     }
 }

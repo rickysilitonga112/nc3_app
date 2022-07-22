@@ -1,21 +1,18 @@
 //
-//  OnBoardingChooseSPF.swift
+//  ChooseSpfView.swift
 //  nc3_app WatchKit Extension
 //
-//  Created by Hisyam sanusi on 18/07/22.
+//  Created by Ricky Silitonga on 21/07/22.
 //
 
 import SwiftUI
 
-struct OnBoardingChooseSPF: View {
+struct ChooseSpfView: View {
     let screenWidth = WKInterfaceDevice.current().screenBounds.width
-    @Binding var showChooseSpfSheet: Bool
-    
-    @State private var selection = 0
     private let spfOption: [Int] = [15, 20, 25, 30, 35, 40, 45, ]
     @StateObject var vm = BaseViewModel.shared
+    @State private var selection = 0
     @State var nextPage: Bool = false
-    
     
     var body: some View {
         VStack {
@@ -40,24 +37,21 @@ struct OnBoardingChooseSPF: View {
             
             Spacer()
             
-            Button {
-                vm.choosenSpf = spfOption[selection]
-                nextPage.toggle()
-                
-            } label: {
-                Text("Choose SPF")
-                    .foregroundColor(.white)
+            NavigationLink(destination: ActifityPageView()
+            ) {
+                Text("Choose Spf")
+                    .foregroundColor(.black)
             }
             .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
-            .background(
-                NavigationLink(destination: OnBoardingSetTime().navigationBarHidden(true), isActive: $nextPage , label: {EmptyView()})
-            )
+            .onTapGesture {
+                vm.choosenSpf = spfOption[selection]
+            }
         }
     }
 }
 
-struct OnBoardingChooseSPF_Previews: PreviewProvider {
+struct ChooseSpfView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingChooseSPF(showChooseSpfSheet: .constant(true))
+        ChooseSpfView()
     }
 }

@@ -10,21 +10,25 @@ import SwiftUI
 struct OnBoardingSetTimeFirst: View {
     
     var body: some View {
-        ScrollView{
-            VStack{
-                ForEach(0..<1){_ in
-                    Text("Set time first apply Sunscreen")
-                        .frame(width: 165, alignment: .leading)
-                    
-                    
-                    Capsule()
-                        .frame(width: 184, height: 48, alignment: .center)
-                        .foregroundColor(.orange)
-                        .overlay {
-                            Text("Save")
-                        }
-                }
+        VStack{
+            Text("Set time first apply Sunscreen")
+                .frame(width: 165, alignment: .leading)
+            
+            Spacer()
+            
+            HStack {
+                
             }
+            
+            Spacer()
+            
+            
+            NavigationLink(destination: ParentView()
+            ) {
+                Text("Set Time")
+                    .foregroundColor(.black)
+            }.buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
+            
         }
     }
 }

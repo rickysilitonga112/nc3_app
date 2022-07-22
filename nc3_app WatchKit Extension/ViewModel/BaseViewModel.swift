@@ -10,11 +10,14 @@ import Foundation
 class BaseViewModel: ObservableObject {
     static let shared = BaseViewModel()
     
+    @Published var choosenSpf: Int = 15
+    
     @Published var latitude: Double?
     @Published var longitude: Double?
     
     @Published var currentCondition: Condition = Condition(dt: 0, temp: 0, uvi: 0, weather: [Weather(id: 0, main: "Unknown", description: "Unknown")])
     @Published var hourlyConditionArr: [Condition]?
+    @Published var fetchDataCallCount: Int = 0
     
     
     private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=bd5e378503939ddaee76f12ad7a97608"
@@ -24,17 +27,15 @@ class BaseViewModel: ObservableObject {
     private let newApiKey: String = "5771794903fa3af42664c0c71443d6d8"
     
     init() {
-        if let latitude = latitude {
-            if let longitude = longitude {
-                fetchData(lat: latitude, lon: longitude)
-            }
-        }
+        print("Init baseviewmodel dipanggil")
     }
     
     // api request
     func fetchData(lat: Double, lon: Double) {
+        fetchDataCallCount += 1
+        print("Fetch data terpanggil \(fetchDataCallCount)")
         
-        let url: String = baseURL + "?appid=\(newApiKey)" + "&exclude=minutely,daily" + "&lat=\(lat)" + "&lon=\(lon)" + "&units=metric"
+        let url: String = baseURL + "?appid=\(apiKey2)" + "&exclude=minutely,daily" + "&lat=\(lat)" + "&lon=\(lon)" + "&units=metric"
         performRequest(with: url)
     }
     

@@ -19,7 +19,7 @@ struct OnBoardingSetTime: View {
                         }
                         Text("Set the first time you use sunscreen to schedule a reminder on your apple watch.")
                     
-                    NavigationLink(destination: OnBoardingSetTime()
+                    NavigationLink(destination: OnBoardingSetTimeFirst()
                     ) {
                         Text("Set Time")
                             .foregroundColor(.black)

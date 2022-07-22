@@ -41,12 +41,12 @@ struct OnboardingLocation: View {
                     print("Location is: \(locationManager.statusString)")
                 }
                 
-                vm.latitude = locationManager.latitude
-                vm.longitude = locationManager.longitude
-                
-                DispatchQueue.main.async {
-                    vm.fetchData(lat: userLatitude, lon: userLongitude)
-                }
+//                vm.latitude = locationManager.latitude
+//                vm.longitude = locationManager.longitude
+//
+//                DispatchQueue.main.async {
+//                    vm.fetchData(lat: userLatitude, lon: userLongitude)
+//                }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     nextPage.toggle()
