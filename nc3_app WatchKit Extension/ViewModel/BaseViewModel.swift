@@ -18,6 +18,8 @@ class BaseViewModel: ObservableObject {
     @Published var currentCondition: Condition = Condition(dt: 0, temp: 0, uvi: 0, weather: [Weather(id: 0, main: "Unknown", description: "Unknown")])
     @Published var hourlyConditionArr: [Condition]?
     @Published var fetchDataCallCount: Int = 0
+    @Published var setMinute: Int = 0
+    @Published var setHour: Int = 0
     
     
     private let completeUrlTest: String = "https://api.openweathermap.org/data/2.5/onecall?lat=1.082828&lon=104.030457&exclude=minutely,daily&appid=bd5e378503939ddaee76f12ad7a97608"

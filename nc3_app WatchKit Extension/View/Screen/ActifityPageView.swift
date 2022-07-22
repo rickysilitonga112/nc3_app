@@ -23,7 +23,7 @@ struct ActifityPageView: View {
     @State var lastApplyMinute: Int = 0
     
     @State var goToChooseSpf: Bool = false
-    
+    @State var gotoTime: Bool = false
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5){
@@ -72,23 +72,25 @@ struct ActifityPageView: View {
                 HStack {
                     Spacer()
                     Button {
-                        withAnimation {
-                            isApplySunscreen = true
-                        }
-                        // test
-                        if let hour = components.hour,
-                           let minute = components.minute {
-                            lastApplyHour = hour
-                            lastApplyMinute = minute
-                        }
-                        
-                        let spfToTime = spf * 10 * 60
-                        components =  Calendar.current.dateComponents([.hour, .minute], from: .now + Double(spfToTime))
-                        
-                        if let hour = components.hour,
-                           let minute = components.minute {
-                            reapplyHour = hour
-                            reapplyMinute = minute
+                        if isApplySunscreen == false {
+                            withAnimation {
+                                isApplySunscreen = true
+                            }
+                            // test
+                            if let hour = components.hour,
+                               let minute = components.minute {
+                                lastApplyHour = hour
+                                lastApplyMinute = minute
+                            }
+                            
+                            let spfToTime = spf * 10 * 60
+                            components =  Calendar.current.dateComponents([.hour, .minute], from: .now + Double(spfToTime))
+                            
+                            if let hour = components.hour,
+                               let minute = components.minute {
+                                reapplyHour = hour
+                                reapplyMinute = minute
+                            }
                         }
                         
                         
@@ -119,27 +121,58 @@ struct ActifityPageView: View {
                 }
                 
                 Button {
-                    goToChooseSpf.toggle()
+                    
+                    
                 } label: {
                     VStack {
                         HStack {
-                            Text("07:30")
+                            Text("SPF \(vm.choosenSpf)")
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
                             
                             Spacer()
                         }
+                        
                         HStack {
-                            Text("Change Reminder")
-                                .font(.footnote)
+                            Text("Change SPF")
                                 .foregroundColor(.white)
+                                .font(.footnote)
                             
                             Spacer()
                         }
                     }
                 }
-                .buttonStyle(BorderedButtonStyle(tint: Color.gray.opacity(255)))
+                .buttonStyle(BorderedButtonStyle(tint: Color.blue.opacity(255)))
                 .background(
-                    NavigationLink(destination: ChooseSpfView().navigationBarHidden(true), isActive: $goToChooseSpf , label: {EmptyView()})
+                    NavigationLink(destination: OnBoardingSPF().navigationBarHidden(true), isActive: $gotoTime , label: {EmptyView()})
+                )
+                
+                
+                Button {
+                    
+                    
+                } label: {
+                    VStack {
+                        HStack {
+                            Text("\(vm.setHour): \(vm.setMinute)")
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            Text("Change Time")
+                                .foregroundColor(.white)
+                                .font(.footnote)
+                            
+                            Spacer()
+                        }
+                    }
+                }
+                .buttonStyle(BorderedButtonStyle(tint: Color.blue.opacity(255)))
+                .background(
+                    NavigationLink(destination: OnBoardingSPF().navigationBarHidden(true), isActive: $gotoTime , label: {EmptyView()})
                 )
                 
                 

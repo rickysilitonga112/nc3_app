@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct DashboardView: View {
 	
@@ -14,6 +15,7 @@ struct DashboardView: View {
     private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
     
     @StateObject var vm = BaseViewModel.shared
+    @StateObject var locationManager = LocationManager.shared
     
     var uvi: Double {
         return vm.currentCondition.uvi.rounded(.up)
@@ -29,7 +31,12 @@ struct DashboardView: View {
     var temperature: Int {
         return Int(vm.currentCondition.temp)
     }
-	
+    
+    var cityName: String {
+       return "City Name"
+    }
+    
+    @State var isLoadLocation = false
     
 //    init() {
 //		let locationManager = LocationManager()
@@ -125,8 +132,17 @@ struct DashboardView: View {
                     } .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-		} .navigationTitle("Batam")
+		} .navigationTitle("\(cityName)")
 			.navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                if isLoadLocation == false {
+                    locationManager.requestAuthorisation()
+                    isLoadLocation.toggle()
+                    
+                    
+                }
+                
+            }
     }
 }
 

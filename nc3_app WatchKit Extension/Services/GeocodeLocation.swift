@@ -9,9 +9,8 @@ import Foundation
 import CoreLocation
 
 extension CLLocation {
-	func fetchCityName(completion: @escaping (_ city: String?, _ error: Error?) -> ()) {
-		CLGeocoder().reverseGeocodeLocation(self) { completion($0?.first?.locality, $1) }
-	}
+    func geocode(completion: @escaping (_ placemark: [CLPlacemark]?, _ error: Error?) -> Void) {
+        CLGeocoder().reverseGeocodeLocation(self, completionHandler: completion)
+    }
 }
-
 
