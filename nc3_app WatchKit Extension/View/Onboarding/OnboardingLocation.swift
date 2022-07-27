@@ -54,7 +54,7 @@ struct OnboardingLocation: View {
                 
             } label: {
                 Text("Set Location")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
             }
             .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
             .background(

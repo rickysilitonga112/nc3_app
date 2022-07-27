@@ -128,21 +128,21 @@ struct ActifityPageView: View {
                         HStack {
                             Text("SPF \(vm.choosenSpf)")
                                 .fontWeight(.bold)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                             
                             Spacer()
                         }
                         
                         HStack {
                             Text("Change SPF")
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .font(.footnote)
                             
                             Spacer()
                         }
                     }
                 }
-                .buttonStyle(BorderedButtonStyle(tint: Color.blue.opacity(255)))
+                .buttonStyle(BorderedButtonStyle(tint: Color.secondary.opacity(255)))
                 .background(
                     NavigationLink(destination: OnBoardingSPF().navigationBarHidden(true), isActive: $gotoTime , label: {EmptyView()})
                 )
@@ -156,21 +156,21 @@ struct ActifityPageView: View {
                         HStack {
                             Text("\(vm.setHour): \(vm.setMinute)")
                                 .fontWeight(.bold)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                             
                             Spacer()
                         }
                         
                         HStack {
                             Text("Change Time")
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .font(.footnote)
                             
                             Spacer()
                         }
                     }
                 }
-                .buttonStyle(BorderedButtonStyle(tint: Color.blue.opacity(255)))
+                .buttonStyle(BorderedButtonStyle(tint: Color.secondary.opacity(255)))
                 .background(
                     NavigationLink(destination: OnBoardingSPF().navigationBarHidden(true), isActive: $gotoTime , label: {EmptyView()})
                 )

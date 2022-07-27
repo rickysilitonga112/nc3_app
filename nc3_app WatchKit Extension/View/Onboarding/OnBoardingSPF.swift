@@ -22,8 +22,8 @@ struct OnBoardingSPF: View {
             Button {
                 showChooseSpfSheet = true
             } label: {
-                Text("Choose")
-                    .foregroundColor(.white)
+                Text("Select")
+                    .foregroundColor(.black)
             }
             .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
             

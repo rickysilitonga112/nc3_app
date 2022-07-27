@@ -553,7 +553,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"nc3_app WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = C6YQVA2JQB;
+				DEVELOPMENT_TEAM = T5F6J6ZS7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nc3_app WatchKit Extension/Info.plist";
@@ -586,7 +586,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"nc3_app WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = C6YQVA2JQB;
+				DEVELOPMENT_TEAM = T5F6J6ZS7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nc3_app WatchKit Extension/Info.plist";
@@ -620,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C6YQVA2JQB;
+				DEVELOPMENT_TEAM = T5F6J6ZS7D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = nc3_app_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -644,7 +644,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C6YQVA2JQB;
+				DEVELOPMENT_TEAM = T5F6J6ZS7D;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = nc3_app_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -665,7 +665,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C6YQVA2JQB;
+				DEVELOPMENT_TEAM = T5F6J6ZS7D;
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rsilitonga.nc3-app";
 				PRODUCT_NAME = UVFun;
@@ -678,7 +678,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C6YQVA2JQB;
+				DEVELOPMENT_TEAM = T5F6J6ZS7D;
 				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rsilitonga.nc3-app";
 				PRODUCT_NAME = UVFun;

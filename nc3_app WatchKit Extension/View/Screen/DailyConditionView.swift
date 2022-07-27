@@ -10,6 +10,8 @@ import SwiftUI
 
 
 struct DailyConditionView: View {
+    private let gradient = Gradient(colors: [.green, .yellow, .red, .purple])
+    
     @StateObject var vm = BaseViewModel.shared
     private let screenWidth = WKInterfaceDevice.current().screenBounds.width
     
@@ -35,30 +37,42 @@ struct DailyConditionView: View {
         List(hourlyCondition, id: \.self) { condition in
             HStack {
                 Text("\(vm.getFormatTime(time: condition.dt))")
+                    .font(.title3)
                 
                 Spacer()
-                
+                Spacer()
+                Gauge(value: condition.uvi, in:0.0 ... 11.0)  {
+                    Image(systemName: "sun.max.fill")
+                        .font(.footnote)
+                        .foregroundColor(Color.orange)
+                } currentValueLabel: {
+                    Text("\(Int(condition.uvi))")
+                        .foregroundColor(Color.white)
+                } .gaugeStyle(CircularGaugeStyle(tint: gradient))
+                Spacer()
                 Text("\(Int(condition.temp))°")
+                    .bold()
+                    .font(.title3)
                 
-                Spacer()
+//                Spacer()
+//
+//                Image(systemName: "\(vm.getConditionName(conditionId: condition.weather.first?.id ?? 0))")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 28)
+//
+//                Spacer()
                 
-                Image(systemName: "\(vm.getConditionName(conditionId: condition.weather.first?.id ?? 0))")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 28)
-                
-                Spacer()
-                
-                Circle()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 28)
-                    .foregroundColor(getUVColor(uvIndex: Int(condition.uvi.rounded(.up))))
-                    .overlay(
-                        Text("\(Int(condition.uvi.rounded(.up)))")
-                            .font(.headline)
-                            .foregroundColor(.black)
-                            .fontWeight(.bold)
-                    )
+//                Circle()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 28)
+//                    .foregroundColor(getUVColor(uvIndex: Int(condition.uvi.rounded(.up))))
+//                    .overlay(
+//                        Text("\(Int(condition.uvi.rounded(.up)))")
+//                            .font(.headline)
+//                            .foregroundColor(.black)
+//                            .fontWeight(.bold)
+//                    )
                 
             }
             .frame(maxWidth: .infinity)
@@ -94,6 +108,7 @@ struct DailyConditionView: View {
         //        }
         
         .navigationTitle("Today UVI")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     

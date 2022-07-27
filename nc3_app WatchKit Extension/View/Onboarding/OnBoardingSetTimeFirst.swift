@@ -81,7 +81,7 @@ struct OnBoardingSetTimeFirst: View {
                 
             } label: {
                 Text("Set Time")
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
             }
             .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
             .background(

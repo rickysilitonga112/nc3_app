@@ -59,64 +59,57 @@ struct DashboardView: View {
         ScrollView {
             // MARK: - CODE HERE
             HStack {
-                HStack(spacing: 6) {
-                    Image(systemName: weatherIcon)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 34)
-                    Text("\(temperature)")
-                        .font(.title2)
-                }
+//                HStack(spacing: 6) {
+//                    Image(systemName: weatherIcon)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 34)
+//                    Text("\(temperature)°")
+//                        .font(.title2)
+//                }
                 
-                Spacer()
+//                Spacer()
                 
-                HStack(spacing: 6) {
+                HStack(spacing: 15) {
                     Gauge(value: uvi, in:0.0 ... 11.0)  {
                         Image(systemName: "sun.max.fill")
                             .font(.footnote)
                             .foregroundColor(Color.orange)
                     } currentValueLabel: {
-                        Text("UV")
+                        Text("\(Int(uvi))")
                             .foregroundColor(Color.white)
                     } .gaugeStyle(CircularGaugeStyle(tint: gradient))
                     
-                    Text("\(Int(uvi))")
-                        .font(.title2)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("UV INDEX")
+                            .foregroundColor(.gray)
+                        .font(.body)
+                        
+                        Text(vm.getIndex(uvi: Int(uvi)))
+                            .font(.title3)
+                            .fontWeight(.bold)
+                    }
                 }
-                
+                Spacer()
             } .padding(.horizontal)
             Divider()
-            HStack{
-                Image(systemName: "sun.max")
-                    .font(.title2)
-                Spacer()
-                    .frame(width: 17)
-                VStack(alignment: .leading) {
-                    Text("UV INDEX")
-                        .frame(width: 80, alignment: .leading)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    Text(vm.getIndex(uvi: Int(uvi)))
-                        .fontWeight(.bold)
-                }
-                Spacer()
-            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text("SKIN WILL BURN AFTER")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                Text(vm.getBurninTime(uvi: Int(uvi)))
+                    .font(.title3)
+                    .fontWeight(.bold)
+            }.frame(maxWidth: .infinity, alignment: .leading)
             Divider()
-            HStack{
-                Image(systemName: "timer")
-                    .font(.title2)
-                Spacer()
-                    .frame(width: 17)
-                VStack(alignment: .leading) {
-                    Text("BURN IN")
-                        .frame(width: 80, alignment: .leading)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    Text(vm.getBurninTime(uvi: Int(uvi)))
-                        .fontWeight(.bold)
-                }
-                Spacer()
-            }
+            VStack(alignment: .leading, spacing: 2) {
+                Text("TEMPERATURE")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                Text("\(temperature)°")
+                    .font(.title3)
+                    .fontWeight(.bold)
+            }.frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             VStack(alignment: .leading, spacing: 2){
                 Text("Today Wear")
@@ -132,7 +125,8 @@ struct DashboardView: View {
                     } .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-		} .navigationTitle("\(cityName)")
+		}
+//        .navigationTitle("\(cityName)")
 			.navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 if isLoadLocation == false {

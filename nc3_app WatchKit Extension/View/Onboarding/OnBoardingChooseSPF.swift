@@ -45,8 +45,8 @@ struct OnBoardingChooseSPF: View {
                 nextPage.toggle()
                 
             } label: {
-                Text("Choose SPF")
-                    .foregroundColor(.white)
+                Text("Save")
+                    .foregroundColor(.black)
             }
             .buttonStyle(BorderedButtonStyle(tint: Color.orange.opacity(255)))
             .background(
