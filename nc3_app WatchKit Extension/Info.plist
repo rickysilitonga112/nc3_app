@@ -7,8 +7,12 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.rsilitonga.nc3-app.watchkitapp</string>
+			<string>com.uvfun.nc3-app.watchkitapp</string>
 		</dict>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>This app will acces location to provide weaher and UV Index based on your location</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>This app will acces location to provide weaher and UV Index based on your location</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
